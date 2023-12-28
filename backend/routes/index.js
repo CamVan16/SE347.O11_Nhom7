@@ -1,4 +1,4 @@
-import user from './user'
+import user from './Auser'
 import auth from './auth'
 import insert from './insert'
 import product from './product'
