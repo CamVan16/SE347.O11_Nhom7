@@ -317,80 +317,63 @@ body{
   }
 }
 /* -------------footer----------------- */
-.footer{
-  margin-top: 10px;
+#footer{
+  width: 100%;
+  padding-top: 1em;
   background-color: #07503d;
+  padding-bottom: 1em;
 }
-.footer .row{
+#footer .row{
   display: flex;
+  padding: 0.5em;
 }
-.row .col{
+#footer .row .col{
    width: fit-content;
    flex-direction: row;
    justify-content: left;
+   /* padding: 0.5em; */
 }
-.addr,
-.contact,
-.instrucment {
-  margin-right: 1em;
+#footer .addr,
+#footer .contact,
+#footer .instruct {
   color: white;
+  padding: 0.5em;
 }
-
-.footer .border-bottom{
-  background-color: white;
-  height: 1px;
-  margin-top: 1rem; 
-
+#footer .addr a img{
+  width: 15.625em;
 }
-.footer img, .footer i, footer a, .footer ul{
+#footer img, #footer i, #footer a, #footer ul{
   width: fit-content;
 }
 
-.footer-copyright {
-  display: flex;
-}
-.footer ul li{
+#footer ul li{
     list-style-type: none;
 }
-.copyright p{
-  width: fit-content;
-}
-.copyright{
-  width: fit-content;
-  display: inline;
-}
 
-.footer .collapse {
+#footer .collapse {
   margin: 0 auto; 
   text-align: left; 
   width: fit-content;
 }
 
-.footer .container {
+#footer .container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
-
 }
-.row .second-2{
-  margin-left: 64%;
-}
-.row .second-2 i{
-  margin: 0 5px;
-}
-.second > p{
-  color: white;
-}
-i{
+#footer i{
   font-size: 1em;
   color: white;
 }
-
-a{
+#footer a{
   text-decoration: none;
   color: white;
+}
+#footer .facebook img{
+  border-radius: 30px;
+  width: 300px;
 }
 /* điều chỉnh giao diện tablet */
 @media (max-width:1200px){
@@ -629,92 +612,39 @@ a{
 }
  /* Điều chỉnh giao diện footer khi màn hình nhỏ hơn 780px */
 @media (max-width: 780px) {
-  .footer {
-    padding: 5px;
-    padding-left: 10px;
-    display:flex;
+  #footer .row {
     flex-direction: column;
+    padding: 0.3em;
   }
-  .nav-item{
-    margin:0
+
+  #footer .col {
+    width: 100%;
   }
-  .footer-nav,.thanks-addr {
-    flex: 1;
-    margin-right: 0;
-    margin-bottom: 10px;
+
+  #footer .facebook img {
+    width: 200px;
   }
-  .thanks-addr{
-    padding:0
+  #footer .map-address{
+  display: none;
   }
-  .footer-btn {
-    font-size: 10px;
-    padding: 4px 12px;
+  #footer .addr,
+  #footer .contact,
+  #footer .instruct {
+    font-size: 1em;
   }
-  .footer-thanks p{
-    font-size: 15px;
-    padding-bottom: 10px;
-  }
-  
-  
-  .footer-nav {
+  #footer .connect{
     padding-left: 0;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
   }
-
-
-  .nav-item .row img{
-    width: 120%;
+  #footer .addr a img{
+    width: 200px;
   }
-  .nav-item .row{
-    width: 20%;
-    align-items: flex-start;
+  #footer i{
+    font-size: 1em;
   }
-  .nav-item a img{
-    width:30%
+  #footer a{
+    font-size: 1em;
   }
-  .row p{
-    font-size: 14px;
-  }
-  .footer-thanks h2{
-    padding: 10px 0;
-  }
-  .footer-addr h2, .nav-item h2{
-    margin: 0;
-    font-size: 15px;
-  }
-  .nav-item
-  .footer-nav p{
-    font-size: 14px;
-  }
-  .footer-nav .nav-item:nth-child(3){
-    padding: 0;
-  }
-  .footer-nav a{
-    font-size: 14px;
-  }
-  .footer-nav i{
-    flex-direction: row;
-    width: 20px;
-    height: 15px;
-    padding: 10px 25px 15px 0px;
-  }
-  .footer-nav{
-    padding:0;
-  }
-  .footer h2{
-    font-size: 18px;
-    padding-top: 10px;
-  }
-  .footer h1{
-    font-size: 20px;
-    padding:10px 0;
-  }
-  .nav-ul li{
-    margin:0
-  }
-  }
+}
 /* Ẩn .mobile và #bar khi màn hình lớn hơn 768px */
 @media (min-width: 781px) {
   .mobile {
