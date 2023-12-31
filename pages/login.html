@@ -3,7 +3,6 @@
 <head>
     <title>Đăng nhập</title>
     <script src="https://kit.fontawesome.com/757ea42d8a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -23,6 +22,9 @@
                         <input type="password" id="password" class="form-input" placeholder="Mật khẩu">
                         <i class="far fa-eye" id="toggle-password"></i>
                     </div>
+                    <label>
+                        <input type="checkbox" id="rememberCheckbox"> Nhớ tài khoản
+                    </label>
                     <div id="account-null" style="color: red;"></div>
                     <input type="submit" id="user-submit" value="Đăng nhập" class="form-submit">
                     <button type="button" id="register-button" class="form-register">Đăng ký</button>
@@ -31,6 +33,6 @@
     <div id="footer-placeholder"></div>
     <script src="../js/pageDefault/loadHeaderFooter.js"></script>
     <script type="module" src="../js/home.js"></script>
-    <script type='module'src="../js/store.js"></script>
+    <!-- <script type="module" src="../js/store.js"></script> -->
 </body>
 </html>
