@@ -131,6 +131,15 @@ function formatNumber(number) {
 function handleSubmit() {
 
 }
+function openCustomPopup(message) {
+  document.getElementById('popupMessage').innerHTML = message;
+  document.getElementById('customPopup').style.display = 'block';
+}
+
+function closeCustomPopup() {
+  document.getElementById('customPopup').style.display = 'none';
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   let formEL = document.getElementById("needs-validation")
   formEL.addEventListener("submit", async(e) => {
@@ -156,10 +165,11 @@ document.addEventListener('DOMContentLoaded', function () {
       const flag = await response.json();
 
       if (basket.length == 0 ) {
-        alert("Bạn chưa có sản phẩm nào để thanh toán! Hãy tới cửa hàng để chọn sản phẩm")
-      } else {
+        openCustomPopup("Bạn chưa có sản phẩm nào để thanh toán! Hãy tới cửa hàng để chọn sản phẩm");}
+      else {
         
-        alert("Chúc mừng bạn đã đặt hàng thành công!")
+        // alert("Chúc mừng bạn đã đặt hàng thành công!")
+        openCustomPopup('Chúc mừng bạn đã đặt hàng thành công!');
         username.value = ""
         address.value = ""
         email.value = ""

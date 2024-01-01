@@ -92,7 +92,7 @@ function generateCart() {
               <h5 class="cart-pro-title">${search.name}</h5>
               <div class="input-number">
               <button class="shopping-cart-btn decrement">-</button>
-              <input id="${search.id}" type="number" value="${x.item}" class="shopping-cart-quantity">
+              <input id="${search.id}" type="number" value="${x.item}" class="shopping-cart-quantity" readonly>
               <button class="shopping-cart-btn increment">+</button>
               </div>
               <h4 class="shopping-cart-price">${formatNumber(search.price)} đ</h4>
