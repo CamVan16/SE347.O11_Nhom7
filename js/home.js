@@ -1,16 +1,16 @@
 //banner
-document.addEventListener("DOMContentLoaded", function () {
-  let currentSlide = 1;
-  const totalSlides = 3;
-  const slideDuration = 5000;
+// document.addEventListener("DOMContentLoaded", function () {
+//   let currentSlide = 1;
+//   const totalSlides = 3;
+//   const slideDuration = 5000;
 
-  function nextSlide() {
-    currentSlide = (currentSlide % totalSlides) + 1;
-    document.getElementById(`banner-${currentSlide}-th`).checked = true;
-  }
+//   function nextSlide() {
+//     currentSlide = (currentSlide % totalSlides) + 1;
+//     document.getElementById(`banner-${currentSlide}-th`).checked = true;
+//   }
 
-  setInterval(nextSlide, slideDuration);
-});
+//   setInterval(nextSlide, slideDuration);
+// });
 
 //dropdown navbar
 document.addEventListener("DOMContentLoaded", function () {
@@ -135,7 +135,7 @@ async function regis(event) {
     const err = await response.json()
     console.log(err)
     if(response.ok && err.err == 1) {
-      alert("Tài khoản đã tồn tại!");
+      showPopup("Tài khoản đã tồn tại!");
     }
     else if (response.ok && err.err == 0) {
       localStorage.setItem("isLoggedIn", "false");
@@ -152,22 +152,20 @@ async function regis(event) {
 }
 
 
+// Function to show a general pop-up
+function showPopup(message) {
+  var popupMessage = document.getElementById("popup-message");
 
+  popupMessage.textContent = message;
+  document.getElementById("popup").style.display = "block";
+}
+
+// Function to close the pop-up
 document.addEventListener("DOMContentLoaded", function () {
-  var regisForm = document.getElementById("form-register");
-  regisForm.addEventListener("submit", function (event) {
-    var password = document.getElementById("pass").value;
-    var confirmPassword = document.getElementById("repass").value;
-    var errorContainer = document.getElementById("password-error");
-
-    if (password !== confirmPassword) {
-      errorContainer.textContent = "Mật khẩu nhập lại không khớp!";
-      event.preventDefault();
-    } else {
-      errorContainer.textContent = "";
-      return regis(event);
-    }
-  });
+  var but = document.querySelector(".close");
+  but.addEventListener("click", () => {
+  document.getElementById("popup").style.display = "none"
+}) 
 });
 
 //Đăng nhập
@@ -453,9 +451,92 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// /// Kiểm tra register (Tú)
+document.addEventListener("DOMContentLoaded", function () {
+  var regisForm = document.getElementById("form-register");
+
+  regisForm.addEventListener("submit", function (event) {
+    var password = document.getElementById("pass").value;
+    var confirmPassword = document.getElementById("repass").value;
+    var email = document.getElementById("email").value;
+    
+    var errorContainer = document.getElementById("error-message");
+    var passwordErrorContainer = document.getElementById("password-error");
+    var errorMessage = document.getElementById("error-email");
+
+    var hasError = false;
+
+      if (!isValidEmail(email)) {
+          errorMessage.textContent = "Vui lòng nhập đúng định dạng email!";
+          event.preventDefault();
+          hasError = true;
+      } else {
+          errorMessage.textContent = "";
+      }
+
+    function isValidEmail(email) {
+        // Biểu thức chính quy kiểm tra định dạng email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Kiểm tra xem email có khớp với biểu thức chính quy không
+        return emailRegex.test(email);
+     }
+
+    // Kiểm tra mật khẩu đầu vào
+    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/.test(password)) {
+      errorContainer.textContent = "Mật khẩu tối thiểu 8 ký tự bao gồm số, chữ in thường, chữ in hoa và ký tự đặc biệt.";
+      event.preventDefault();
+      hasError = true;
+    } else {
+      errorContainer.textContent = "";
+    }
+
+    // Kiểm tra khớp mật khẩu
+    if (password !== confirmPassword) {
+      passwordErrorContainer.textContent = "Mật khẩu nhập lại không khớp!";
+      event.preventDefault();
+      hasError = true;
+    } else {
+      passwordErrorContainer.textContent = "";
+    }
+    if (!hasError) {
+      return regis(event);
+    }
+  });
+});
+
 //load store
 function start() {
   formregis();
   // loadUser()
 }
+
+
+
+// Khi nhấp vào thương hiệu (Tú)
+
+document.addEventListener("DOMContentLoaded", function () {
+  var favItems = document.querySelectorAll(".list-brand div");
+
+  favItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var selectedBrand = item.getAttribute("data-brand");
+      window.location.href = "store.html?brand=" + encodeURIComponent(selectedBrand);
+    });
+  });
+});
+
+// Khi nhấp vào mùi hương (Tú)
+
+document.addEventListener("DOMContentLoaded", function () {
+  var favItems = document.querySelectorAll(".list-fav div");
+
+  favItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var selectedScent = item.getAttribute("data-scent");
+      window.location.href = "store.html?scent=" + encodeURIComponent(selectedScent);
+    });
+  });
+});
+
 start();

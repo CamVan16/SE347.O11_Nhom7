@@ -274,6 +274,7 @@ function Pagination(){
       
       
 }
+
 async function start(){
   await getData()
   calculationItem()
@@ -287,3 +288,37 @@ async function start(){
   Pagination()
 }
 start()
+/// Khi nhấp vào thương hiệu
+
+document.addEventListener("DOMContentLoaded", function () {
+  var urlParams = new URLSearchParams(window.location.search);
+  var selectedBrand = urlParams.get("brand");
+
+  if (selectedBrand) {
+    var incenseDropdown = document.getElementById("brandDropdown");
+    // Chọn tùy chọn trong dropdown tương ứng với thương hiệu đã chọn
+    brandDropdown.value = selectedBrand;
+    setTimeout(function () {
+      var filterButton = document.querySelector(".filter");
+      filterButton.click();
+    }, 200);
+  }
+});
+
+/// Khi nhấp vào mùi hương 
+
+document.addEventListener("DOMContentLoaded", function () {
+  var urlParams = new URLSearchParams(window.location.search);
+  var selectedScent = urlParams.get("scent");
+
+  if (selectedScent) {
+    var incenseDropdown = document.getElementById("incenseDropdown");
+    // Chọn tùy chọn trong dropdown tương ứng với hương thơm đã chọn
+    incenseDropdown.value = selectedScent;
+    setTimeout(function () {
+      var filterButton = document.querySelector(".filter");
+      filterButton.click();
+    }, 200);
+  }
+});
+

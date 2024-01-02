@@ -3,43 +3,53 @@ html{
     
 }
 
-#about-body .mt-16{
+body {
+    font-size: 16px;
+    background-color: #FFF6F4;
+}
+
+/* .row{
+    margin-left: -8px;
+    margin-right: -8px;
+} */
+
+.mt-16{
     margin-top: 16px !important;
 }
 
-#about-body .pull-right{
+.pull-right{
     float: right !important;
 }
 
-#about-body .row::after{
+.row::after{
     content: "";
     display: block;
     clear: both;
 }
 
-#about-body .col{
+.col{
     float: left;
     padding-left: 32px;
     padding-right: 32px;
 }
 
-#about-body .col-full{
+.col-full{
     width: 100%;
 }
 
-#about-body .col-half{
+.col-half{
     width: 50%;
 }
 
-#about-body .col-third{
+.col-third{
     width: 33.33333%;
 }
 
-#about-body .col-four{
+.col-four{
     width: 25%;
 }
 
-#about-body .col-twothird {
+.col-twothird {
     width: 66.66666%;
 }
 
@@ -78,7 +88,7 @@ html{
     word-spacing: 1.5px;
 }
 
-#about-body .bg {
+.bg {
     background: url("https://53.fs1.hubspotusercontent-na1.net/hubfs/53/assets/hubspot.com/about_2019/blobs/Blop-Gray@2x.png") no-repeat top center;
 }
 
@@ -86,21 +96,21 @@ html{
     margin-top: 64px;
 }
 
-#about-body .about-img {
+.about-img {
     border-radius: 8px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-#about-body .about-img:hover {
+.about-img:hover {
     opacity: 0.8;
     cursor: pointer;
 }
 
-#about-body .value-item + .value-item {
+.value-item + .value-item {
     margin-top: 32px;
 }
 
-#about-body .about-history {
+.about-history {
     margin-bottom: 32px;
 }
 
