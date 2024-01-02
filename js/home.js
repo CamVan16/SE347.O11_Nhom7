@@ -17,15 +17,18 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("bar").addEventListener("click", function () {
     console.log("Clicked #bar");
     var menuList = document.querySelector(".menu-list");
+    var dark_mode = document.querySelector(".dark-mode");
     menuList.classList.toggle("active");
 
-    var icons = document.querySelectorAll(".mobile .icons");
-    icons.forEach(function (icon) {
-      icon.style.display = "none";
-    });
+    var icon = document.querySelector("#header .mobile #bar");
+    icon.style.display = "none";
 
     document.getElementById("xmark").style.display = "initial";
     console.log("#xmark displayed");
+    dark_mode.style.display = "initial";
+
+    dark_mode.style.height = window.innerHeight + "px";
+    dark_mode.style.width = window.innerWidth + "px"; 
   });
 
   document.getElementById("xmark").addEventListener("click", function () {
@@ -33,13 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var menuList = document.querySelector(".menu-list");
     menuList.classList.remove("active");
 
-    var icons = document.querySelectorAll(".mobile .icons");
-    icons.forEach(function (icon) {
-      icon.style.display = "flex";
-    });
+    var icon = document.querySelector("#header .mobile #bar");
+    icon.style.display = "initial";
 
     document.getElementById("xmark").style.display = "none";
     console.log("#xmark hidden");
+    document.querySelector(".dark-mode").style.display = "none";
   });
 });
 
@@ -172,7 +174,65 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //Đăng nhập
 
+// Hàm để lưu trữ thông tin đăng nhập vào cookie
+function setLoginCredentials(userName, userPass, remember) {
+  // Thời gian hết hạn của cookie (ở đây là 30 ngày)
+  const expirationDate = new Date();
+  expirationDate.setDate(expirationDate.getDate() + 30);
+
+  // Tạo đối tượng lưu trữ thông tin đăng nhập
+  const credentials = {
+    userName: userName,
+    userPass: userPass,
+    remember: remember
+  };
+
+  // Chuyển đổi đối tượng thành chuỗi JSON
+  const credentialsJSON = JSON.stringify(credentials);
+
+  // Lưu trữ thông tin đăng nhập vào cookie
+  document.cookie = "loginCredentials=" + encodeURIComponent(credentialsJSON) +
+    "; expires=" + expirationDate.toUTCString() + "; path=/";
+}
+
+// Hàm để đọc thông tin đăng nhập từ cookie
+function getLoginCredentials() {
+  const cookies = document.cookie.split(";");
+
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i].trim();
+
+    if (cookie.startsWith("loginCredentials=")) {
+      const cookieValue = decodeURIComponent(cookie.substring("loginCredentials=".length));
+
+      try {
+        // Phân tích chuỗi JSON thành đối tượng
+        const credentials = JSON.parse(cookieValue);
+        return credentials;
+      } catch (error) {
+        console.error("Lỗi phân tích chuỗi JSON: " + error);
+      }
+    }
+  }
+
+  return null;
+}
+//
+
 document.addEventListener("DOMContentLoaded", function () {
+
+  const credentials = getLoginCredentials();
+  if (credentials && credentials.remember) {
+    const userNameInput = document.getElementById("username");
+    const userPassInput = document.getElementById('password');
+    const rememberCheckbox = document.getElementById("rememberCheckbox");
+
+    // Đặt giá trị của ô input và check-box từ thông tin đăng nhập được lưu trữ
+    userNameInput.value = credentials.userName;
+    userPassInput.value = credentials.userPass;
+    rememberCheckbox.checked = true;
+  }
+
   var loginForm = document.getElementById("form-login");
   loginForm.addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -200,6 +260,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // console.log(result);
         if (!result.err) {  
+          const remember = document.getElementById("rememberCheckbox").checked;
+
+          if (remember) // Thêm cookie
+          {
+            setLoginCredentials(userName, userPass, remember);
+          }
+          else // Xoá cookie
+          {
+            document.cookie = "loginCredentials=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+          }
+
           localStorage.setItem("isLoggedIn", "true");
           localStorage.setItem("access_token_SM", result.access_token);
           window.location.href = "./home.html";

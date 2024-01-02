@@ -3,7 +3,7 @@
   src: url(/fonts/Roboto-Regular.ttf);
 }
 *{
-    width: 100%;
+    /* width: 100%; */
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -76,7 +76,9 @@ body{
 .form-input::placeholder{
     color: black;
 }
-
+#rememberCheckbox {
+    width: auto;
+}
 .form-submit{
     background: transparent;
     border: 1px solid black;
