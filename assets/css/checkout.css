@@ -169,6 +169,7 @@ input[type=radio] {
 input[type=radio]:checked {
     background-color: #088178;
 }
+<<<<<<< Updated upstream
 .popup {
     display: none;
     position: fixed;
@@ -202,6 +203,39 @@ input[type=radio]:checked {
     cursor: pointer;
   }
   
+=======
+#customPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #07503d;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    max-width: 70%;
+  }
+  
+  .popup-content {
+    position: relative;
+  }
+  #popupMessage {
+    color: #fff;
+  }
+  .popup .close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #07503d;
+    border: none;
+    color: #fff;
+    width: 50px;
+    height: fit-content;
+  }
+>>>>>>> Stashed changes
 @media (max-width: 896px) {
     #checkout .row {
         flex-direction: column;

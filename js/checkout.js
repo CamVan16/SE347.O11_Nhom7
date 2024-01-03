@@ -165,18 +165,26 @@ document.addEventListener('DOMContentLoaded', function () {
       const flag = await response.json();
 
       if (basket.length == 0 ) {
+<<<<<<< Updated upstream
         openCustomPopup("Bạn chưa có sản phẩm nào để thanh toán! Hãy tới cửa hàng để chọn sản phẩm");}
       else {
         
         // alert("Chúc mừng bạn đã đặt hàng thành công!")
         openCustomPopup('Chúc mừng bạn đã đặt hàng thành công!');
+=======
+        openCustomPopup("Bạn chưa có sản phẩm nào để thanh toán! Hãy tới cửa hàng để chọn sản phẩm")
+      } else {
+        openCustomPopup("Chúc mừng bạn đã đặt hàng thành công!");
+
+        // alert("Chúc mừng bạn đã đặt hàng thành công!")
+>>>>>>> Stashed changes
         username.value = ""
         address.value = ""
         email.value = ""
         phoneNumber.value = ""
         window.localStorage.removeItem('data')
         // location.reload();
-        window.location.href = "./home.html";
+        // window.location.href = "./home.html";
       }
     }
     catch (error) {
@@ -186,8 +194,23 @@ document.addEventListener('DOMContentLoaded', function () {
    
   })
 })
-  
+function openCustomPopup(message) {
+  document.getElementById('popupMessage').innerHTML = message;
+  document.getElementById('customPopup').style.display = 'block';
 
+  setTimeout(function() {
+    closePopup();
+  }, 3000);
+}
+
+
+document.addEventListener("DOMContentLoaded", function closePopup() {
+  var but = document.querySelector(".close");
+  but.addEventListener("click", () => {
+  document.getElementById("customPopup").style.display = "none"
+  window.location.href = "./home.html";
+}) 
+});
 async function start() {
   await getData()
   calculationItem()
