@@ -1,4 +1,4 @@
-.regis-page{
+/* .regis-page{
     display: flex;
     max-width: 900px;
     margin: 10px auto;
@@ -129,4 +129,217 @@
 .form-input::placeholder{
     font-size: 14px;
 }
+} */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
+
+body,
+#form-register input,
+#form-register button {
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+    color: hsl(0, 0%, 0%);
+}
+
+#form-register input,
+#form-register button {
+  border: none;
+  outline: none;
+}
+
+.login__register a {
+    text-decoration: none;
+}
+
+.regis-page {
+    position: relative;
+    height: 80vh;
+    display: grid;
+    align-items: center;
+    margin: 20px auto;
+}
+
+#form-register {
+    position: relative;
+    background-color: hsla(0, 0%, 10%, 0.1);
+    border: 2px solid hsl(0, 0%, 0%);
+    margin-inline: 1.5rem;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(8px);
+    width: 40vw !important;
+    margin: auto auto;
+}
+
+#form-register .form-heading {
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.register__content, 
+#form-register .form-group {
+    display: grid;
+}
+
+.register__content {
+    row-gap: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.register__content .form-group {
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    column-gap: 0.75rem;
+    border-bottom: 2px solid hsl(0, 0%, 0%);
+    padding: 16px 12px;
+    height: 40px;
+}
+
+.register__content .form-group i {
+    font-size: 1.25rem;
+}
+
+.register__content .form-input {
+    width: 100%;
+    padding-block: 0.8rem;
+    background: none;
+    color: hsl(0, 0%, 0%);
+    position: relative;
+    z-index: 1;
+}
+
+.form-group-input {
+    position: relative;
+}
+
+.register__label {
+    position: absolute;
+    left: 0;
+    top: 13px;
+    font-weight: 500;
+    transition: top 0.3s, font-size 0.3s;
+}
+
+#form-register #toggle-password, 
+#form-register #rtoggle-password{
+    position: absolute;
+    top: 18px;
+    z-index: 10;
+    cursor: pointer;
+    height: 20px;
+}
+
+.register__content .form-group:nth-child(2) input {
+    padding-right: 1.8rem;
+  }
+
+#form-register .form-register {
+    text-align: center; 
+    color: hsl(0, 0%, 100%);
+    font-weight: 500;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: hsl(0, 0%, 0%);
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.login__register {
+    text-align: center;
+}
+.login__register a {
+    color: hsl(0, 0%, 0%);
+    font-weight: 500;
+}
+  .login__register a:hover {
+    text-decoration: underline;
+}
+  
+
+.register__content .form-input:focus + .register__label {
+    top: -12px;
+    font-size: 0.813rem;
+}
+
+.register__content .form-input:not(:placeholder-shown).form-input:not(:focus) + .register__label {
+    top: -12px;
+    font-size:  0.813rem;
+}
+
+.Popup {
+    max-width: 500px;
+    min-width: 200px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    text-align: center;
+    padding: 50px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.popup-heading {
+    margin: 10px 0;
+    text-align: left;
+    letter-spacing: 1px;
+}
+
+.popup-content {
+    text-align: center;
+    color: hsl(0, 0%, 0%);
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.close {
+    max-width: fit-content;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: right;
+    background-color: #fefefe;
+}
+
+@media (max-width:63.9375em){
+#form-register {
+    width: 70vw !important;
+}
+
+.register__content .form-heading{
+    font-size: 20px;
+}
+#form-register{
+    font-size: 15px;
+}
+.register__content .form-input::placeholder{
+    font-size: 14px;
+}
+}
+
+@media (max-width: 46.1875em){
+#form-register {
+    width: 80vw !important;
+}
+}
+

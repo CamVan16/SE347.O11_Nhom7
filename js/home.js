@@ -17,15 +17,18 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("bar").addEventListener("click", function () {
     console.log("Clicked #bar");
     var menuList = document.querySelector(".menu-list");
+    var dark_mode = document.querySelector(".dark-mode");
     menuList.classList.toggle("active");
 
-    var icons = document.querySelectorAll(".mobile .icons");
-    icons.forEach(function (icon) {
-      icon.style.display = "none";
-    });
+    var icon = document.querySelector("#header .mobile #bar");
+    icon.style.display = "none";
 
     document.getElementById("xmark").style.display = "initial";
     console.log("#xmark displayed");
+    dark_mode.style.display = "initial";
+
+    dark_mode.style.height = window.innerHeight + "px";
+    dark_mode.style.width = window.innerWidth + "px"; 
   });
 
   document.getElementById("xmark").addEventListener("click", function () {
@@ -33,13 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var menuList = document.querySelector(".menu-list");
     menuList.classList.remove("active");
 
-    var icons = document.querySelectorAll(".mobile .icons");
-    icons.forEach(function (icon) {
-      icon.style.display = "flex";
-    });
+    var icon = document.querySelector("#header .mobile #bar");
+    icon.style.display = "initial";
 
     document.getElementById("xmark").style.display = "none";
     console.log("#xmark hidden");
+    document.querySelector(".dark-mode").style.display = "none";
   });
 });
 
@@ -56,7 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //đăng ký, kiểm tra password
 //eye-login
-import { user } from "./datauser.js";
 document.addEventListener("DOMContentLoaded", function () {
   var passwordInput = document.getElementById("password");
   var togglePassword = document.getElementById("toggle-password");
@@ -135,7 +136,7 @@ async function regis(event) {
     const err = await response.json()
     console.log(err)
     if(response.ok && err.err == 1) {
-      alert("Tài khoản đã tồn tại!");
+      showPopup("Tài khoản đã tồn tại!");
     }
     else if (response.ok && err.err == 0) {
       localStorage.setItem("isLoggedIn", "false");
@@ -150,21 +151,86 @@ async function regis(event) {
 
   return false;
 }
+// Function to show a general pop-up
+function showPopup(message) {
+  var popupMessage = document.getElementById("popup-message");
 
+  popupMessage.textContent = message;
+  document.getElementById("popup").style.display = "block";
+}
 
+// Function to close the pop-up
+document.addEventListener("DOMContentLoaded", function () {
+  var but = document.querySelector(".close");
+  but.addEventListener("click", () => {
+  document.getElementById("popup").style.display = "none"
+}) 
+});
+//kiểm tra việc đăng ký
+// document.addEventListener("DOMContentLoaded", function () {
+//   var regisForm = document.getElementById("form-register");
+//   regisForm.addEventListener("submit", function (event) {
+//     var password = document.getElementById("pass").value;
+//     var confirmPassword = document.getElementById("repass").value;
+//     var errorContainer = document.getElementById("password-error");
 
+//     if (password !== confirmPassword) {
+//       errorContainer.textContent = "Mật khẩu nhập lại không khớp!";
+//       event.preventDefault();
+//     } else {
+//       errorContainer.textContent = "";
+//       return regis(event);
+//     }
+//   });
+// });
 document.addEventListener("DOMContentLoaded", function () {
   var regisForm = document.getElementById("form-register");
+
   regisForm.addEventListener("submit", function (event) {
     var password = document.getElementById("pass").value;
     var confirmPassword = document.getElementById("repass").value;
-    var errorContainer = document.getElementById("password-error");
+    var email = document.getElementById("email").value;
+    
+    var errorContainer = document.getElementById("error-message");
+    var passwordErrorContainer = document.getElementById("password-error");
+    var errorMessage = document.getElementById("error-email");
 
-    if (password !== confirmPassword) {
-      errorContainer.textContent = "Mật khẩu nhập lại không khớp!";
+    var hasError = false;
+
+      if (!isValidEmail(email)) {
+          errorMessage.textContent = "Vui lòng nhập đúng định dạng email!";
+          event.preventDefault();
+          hasError = true;
+      } else {
+          errorMessage.textContent = "";
+      }
+
+    function isValidEmail(email) {
+        // Biểu thức chính quy kiểm tra định dạng email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Kiểm tra xem email có khớp với biểu thức chính quy không
+        return emailRegex.test(email);
+     }
+
+    // Kiểm tra mật khẩu đầu vào
+    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/.test(password)) {
+      errorContainer.textContent = "Mật khẩu tối thiểu 8 ký tự bao gồm số, chữ in thường, chữ in hoa và ký tự đặc biệt.";
       event.preventDefault();
+      hasError = true;
     } else {
       errorContainer.textContent = "";
+    }
+
+    // Kiểm tra khớp mật khẩu
+    if (password !== confirmPassword) {
+      passwordErrorContainer.textContent = "Mật khẩu nhập lại không khớp!";
+      event.preventDefault();
+      hasError = true;
+    } else {
+      passwordErrorContainer.textContent = "";
+    }
+    if (!hasError) {
       return regis(event);
     }
   });
@@ -172,7 +238,65 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //Đăng nhập
 
+// Hàm để lưu trữ thông tin đăng nhập vào cookie
+function setLoginCredentials(userName, userPass, remember) {
+  // Thời gian hết hạn của cookie (ở đây là 30 ngày)
+  const expirationDate = new Date();
+  expirationDate.setDate(expirationDate.getDate() + 30);
+
+  // Tạo đối tượng lưu trữ thông tin đăng nhập
+  const credentials = {
+    userName: userName,
+    userPass: userPass,
+    remember: remember
+  };
+
+  // Chuyển đổi đối tượng thành chuỗi JSON
+  const credentialsJSON = JSON.stringify(credentials);
+
+  // Lưu trữ thông tin đăng nhập vào cookie
+  document.cookie = "loginCredentials=" + encodeURIComponent(credentialsJSON) +
+    "; expires=" + expirationDate.toUTCString() + "; path=/";
+}
+
+// Hàm để đọc thông tin đăng nhập từ cookie
+function getLoginCredentials() {
+  const cookies = document.cookie.split(";");
+
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i].trim();
+
+    if (cookie.startsWith("loginCredentials=")) {
+      const cookieValue = decodeURIComponent(cookie.substring("loginCredentials=".length));
+
+      try {
+        // Phân tích chuỗi JSON thành đối tượng
+        const credentials = JSON.parse(cookieValue);
+        return credentials;
+      } catch (error) {
+        console.error("Lỗi phân tích chuỗi JSON: " + error);
+      }
+    }
+  }
+
+  return null;
+}
+//
+
 document.addEventListener("DOMContentLoaded", function () {
+
+  const credentials = getLoginCredentials();
+  if (credentials && credentials.remember) {
+    const userNameInput = document.getElementById("username");
+    const userPassInput = document.getElementById('password');
+    const rememberCheckbox = document.getElementById("rememberCheckbox");
+
+    // Đặt giá trị của ô input và check-box từ thông tin đăng nhập được lưu trữ
+    userNameInput.value = credentials.userName;
+    userPassInput.value = credentials.userPass;
+    rememberCheckbox.checked = true;
+  }
+
   var loginForm = document.getElementById("form-login");
   loginForm.addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -200,6 +324,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // console.log(result);
         if (!result.err) {  
+          const remember = document.getElementById("rememberCheckbox").checked;
+
+          if (remember) // Thêm cookie
+          {
+            setLoginCredentials(userName, userPass, remember);
+          }
+          else // Xoá cookie
+          {
+            document.cookie = "loginCredentials=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+          }
+
           localStorage.setItem("isLoggedIn", "true");
           localStorage.setItem("access_token_SM", result.access_token);
           window.location.href = "./home.html";
@@ -216,14 +351,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// function login(userName,userPass) {
-//     return user.find(function (u) {
-//       return u.tel === userName && u.password === userPass;
-//   });
-// }
-// function loadUser(){
-//   document.getElementById('pro-user').textContent = currentUser;
-// }
 document.addEventListener("DOMContentLoaded", function () {
   var userLink = document.getElementById("user-link");
   var mUserLink = document.getElementById("m-user-link");
@@ -438,7 +565,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("changePasswordForm").onsubmit = changePassword;
   }
 });
-// aaaaa
 
 document.addEventListener("DOMContentLoaded", function () {
   var logoutbutton = document.getElementById("logout");
@@ -452,7 +578,31 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "./home.html";
   });
 });
+// Khi nhấp vào thương hiệu (Tú)
 
+document.addEventListener("DOMContentLoaded", function () {
+  var favItems = document.querySelectorAll(".list-brand div");
+
+  favItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var selectedBrand = item.getAttribute("data-brand");
+      window.location.href = "store.html?brand=" + encodeURIComponent(selectedBrand);
+    });
+  });
+});
+
+// Khi nhấp vào mùi hương (Tú)
+
+document.addEventListener("DOMContentLoaded", function () {
+  var favItems = document.querySelectorAll(".list-fav div");
+
+  favItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var selectedScent = item.getAttribute("data-scent");
+      window.location.href = "store.html?scent=" + encodeURIComponent(selectedScent);
+    });
+  });
+});
 //load store
 function start() {
   formregis();

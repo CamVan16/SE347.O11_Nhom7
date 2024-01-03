@@ -31,38 +31,40 @@
     padding: 25px 25px 35px;
     box-shadow: 0px 0px 17px 2px rgba(255, 255, 255, 0.8);
 }
-.form-heading{
+#form-login .form-heading{
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
     text-align: center;
     margin-bottom: 25px;
 }
-.form-group{
+#form-login .form-group{
     position: relative;
     border-bottom: 1px solid black;
     margin-top: 10px;
     margin-bottom: 15px;
     display: flex;
 }
-.form-group i{
+#form-login .form-group i{
     color: black;
     font-size: 15px;
     padding-top: 5px;
     padding-right: 10px;
 }
-.form-input{
+#form-login .form-input{
     background: transparent;
     border: 0;
     outline: 0;
     color: black;
     flex-grow: 1;
 }
-.form-input::placeholder{
+#form-login .form-input::placeholder{
     color: black;
 }
-
-.form-submit{
+#rememberCheckbox {
+    width: auto;
+}
+#form-login .form-submit{
     background: transparent;
     border: 1px solid black;
     color: black;
@@ -73,7 +75,7 @@
     margin-top: 30px;
     border-radius: 25px;
 }
-.form-register{
+#form-login .form-register{
     background: transparent;
     border: 1px solid black;
     color: black;
@@ -85,10 +87,10 @@
     margin-top: 5px;
     border-radius: 25px;
 }
-.form-submit:hover{
+#form-login .form-submit:hover{
     border: 1px solid white;
 }
-.form-register:hover{
+#form-login .form-register:hover{
     border: 1px solid white;
 }
 @media (max-width: 768px) {
@@ -108,13 +110,13 @@
     #wrapper input{
         font-size: 15px;
     }
-    .form-heading{
+    #form-login .form-heading{
         font-size: 20px;
     }
-    .form-register{
+    #form-login .form-register{
         font-size: 15px;
     }
-    .form-input::placeholder{
+    #form-login .form-input::placeholder{
         font-size: 14px;
     }
 }

@@ -1,8 +1,8 @@
 function sendContact(){
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var subject = document.getElementById('subject').value;
-    var message = document.getElementById('message').value;
+    var name = document.getElementById('cname').value;
+    var email = document.getElementById('cemail').value;
+    var subject = document.getElementById('csubject').value;
+    var message = document.getElementById('cmessage').value;
     var body = 'Họ và tên: ' + name + '<br/> Email: ' + email + '<br/> Chủ đề: ' + subject + '<br/> Nội dung: ' + message;
     Email.send({
       SecureToken : "7dc5821d-de66-4b64-921a-d814a14d787e",

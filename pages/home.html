@@ -5,58 +5,89 @@
 </head>
 <body>
     <div id="header-placeholder"></div>
-    <div class="banner">
-        <img src="../assets/images/slider_1.png" alt="banner-home">
+    <div class="slide-banner">
+        <div class="menu">
+            <label for="banner-1-th"></label>
+            <label for="banner-2-th"></label>
+            <label for="banner-3-th"></label>
+        </div>
+        <input id="banner-1-th" type="radio" name="slides" checked>
+            <div class="base-banner banner-1">
+                <img src="../assets/images/slider_1.jpg" alt="banner-home">
+            </div>
+        <input id="banner-2-th" type="radio" name="slides">
+            <div class="banner banner-2">
+                <img src="../assets/images/slider_2.jpg" alt="banner-home">
+            </div>
+        <input id="banner-3-th" type="radio" name="slides">
+            <div class="banner banner-3">
+                <img src="../assets/images/slider_3.jpg" alt="banner-home">
+            </div>
     </div>
     <section id="body">
         <div class="favorite">
-            <p>Những mùi hương được ưa chuộng nhất</p>
-            <p>Sỡ hữu mùi hương của riêng bạn với những gợi ý mùi hương được yêu thích nhất của RADIANTE</p>
+            <p>Những thương hiệu được ưa chuộng nhất</p>
         </div>
-        <div class="list-fav">
-            <div>
-                <img src="../assets/images/anhdao.jpg" alt="Hoa anh đào">
-                <p>Hoa anh đào</p>
+        <div class="list-brand">
+            <div data-brand="Creed">
+                <img src="../assets/images/home/logo_creed.jpg" alt="Creed">
             </div>
-            <div>
-                <img src="../assets/images/blackberry.jpg" alt="Blackberry">
-                <p>Blackberry</p>
+            <div data-brand="Birkholz">
+                <img src="../assets/images/home/logo_birk.png" alt="Birkholz">
             </div>
-            <div>
-                <img src="../assets/images/Camchanh.jpg" alt="Cam chanh">
-                <p>Cam chanh</p>
+            <div data-brand="Abercrombie & Fitch">
+                <img src="../assets/images/home/logo_a&f.jpg" alt="Abercrombie & Fitch">
             </div>
-            <div>
-                <img src="../assets/images/dalanhuong.jpg" alt="Dạ lan hương">
-                <p>Dạ lan hương</p>
-            </div>
-            <div>
-                <img src="../assets/images/dathuoc.jpg" alt="Da thuộc">
-                <p>Da thuộc</p>
-            </div>
-            <div>
-                <img src="../assets/images/Hoaco.jpg" alt="Hoa cỏ tươi mát">
-                <p>Hoa cỏ tươi mát</p>
-            </div>
-            <div>
-                <img src="../assets/images/sip.jpg" alt="Síp">
-                <p>Síp</p>
-            </div>
-            <div>
-                <img src="../assets/images/thomngat.jpg" alt="Thơm ngát">
-                <p>Thơm ngát</p>
+            <div data-brand="Versace">
+                <img src="../assets/images/home/logo_ver.png" alt="Versace">
             </div>
         </div>
         <div class="favorite">
-            <p>Những dòng sản phẩm được ưa chuộng nhất</p>
-            <p>RADIANTE nắm bắt sở thích khách hàng, sở hữu nhiều thương hiệu đắt khách nhất</p>
+            <p>Những mùi hương được ưa chuộng nhất</p>
+        </div>
+
+        <div class="list-fav">
+            <div data-scent="Aromatic">
+                <img src="../assets/images/thomngat.jpg" alt="Aromatic">
+                <p>Thơm ngát</p>
+            </div>
+            <div data-scent="Floral Fruity">
+                <img src="../assets/images/Scent/traicay.jpg" alt="Floral Fruity">
+                <p>Hoa cỏ trái cây</p>
+            </div>
+            <div data-scent="Citrus Aromatic">
+                <img src="../assets/images/Scent/camChanhThom.jpg" alt="Citrus Aromatic">
+                <p>Cam chanh thơm ngát</p>
+            </div>
+            <div data-scent="Floral Woody Musk">
+                <img src="../assets/images/Scent/xaHuong.jpg" alt="Floral Woody Musk">
+                <p>Hoa cỏ Gỗ xạ hương</p>
+            </div>
+            <div data-scent="Oriental Floral">
+                <img src="../assets/images/Scent/hoaCoPD.jpg" alt="Oriental Floral">
+                <p>Hoa cỏ phương Đông</p>
+            </div>
+            <div data-scent="Floral">
+                <img src="../assets/images/Scent/Hoaco.jpg" alt="Floral">
+                <p>Hoa cỏ</p>
+            </div>
+            <div data-scent="Chypre Floral">
+                <img src="../assets/images/Scent/hoaCoSip.jpg" alt="Chypre Floral">
+                <p>Hoa cỏ Síp</p>
+            </div>
+            <div data-scent="Aromatic Fougere">
+                <img src="../assets/images/Scent/duongxi.jpg" alt="Aromatic Fougere">
+                <p>Dương xỉ</p>
+            </div>
         </div>
         <div></div>
         <div class="new-product">
             <p>Hàng mới về</p>
-            <button type="button" class="see-more"><a href="./store.html">Xem tất cả</a></button>
         </div>
         <div class="n-product">
+        </div>
+        <div class="new-product-bt">
+            <button type="button" class="see-more"><a href="./store.html">Xem tất cả</a></button>
         </div>
         <div class="new-product">
             <p>Tin tức nổi bật</p>
@@ -65,40 +96,17 @@
             <ul class="blog-list-ul col2-by-mon">
             </ul>
         </section>
-        <div class="new-product">
+        <div class="new-product-bt">
             <button type="button" class="see-more"><a href="./blog.html">Xem thêm</a></button>
         </div>
     </section>
     <hr>
-    <!-- <section id="body">
-        
-        <div class="new-product">
-            <p>Nguồn cảm hứng bất tận đến từ những sản phẩm mới nhất</p>
-            <p>FragraneceEleven không chỉ mang đến hương thơm mà còn là những câu chuyện được
-            kể theo cảm nhận riêng biệt của từng người dùng</p>
-        </div>
-        <div class="n-product">
-        </div>
-        <div class="new-product">
-            <button type="button" class="see-more"><a href="./store.html">Xem thêm</a></button>
-        </div>
-        <div class="new-product">
-            <p>Tin tức nổi bật</p>
-        </div>
-        <section id="homeblog">
-            <ul class="blog-list-ul col2-by-mon">
-            </ul>
-        </section>
-        <div class="new-product">
-            <button type="button" class="see-more"><a href="./blog.html">Xem thêm</a></button>
-        </div>
-    </section> -->
     <div id="footer-placeholder"></div>
     <script src="../js/pageDefault/loadHeaderFooter.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/elasticlunr/elasticlunr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
     <script type="module" src="../js/home.js"></script>
-    <script type='module'src="../js/store.js"></script>
+    <script type="module" src="../js/store.js"></script>
     <script type="module" src="../js/detail.js"></script>
     <script type="module" src="../js/loadhome.js"></script>
     <script type="module" src="../js/homeblog.js"></script>
