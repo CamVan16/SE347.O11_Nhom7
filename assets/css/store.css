@@ -261,12 +261,12 @@ select{
 .fa-chevron-up:hover{
     color: rgb(0, 21, 255);
 }
-@media (max-width:1000px){
+@media (max-width:1024px){
   .product{
     padding:40px 0;
   }
 }
-@media (max-width:600px){
+@media (max-width:768px){
   .product{
     padding:5px;
   }

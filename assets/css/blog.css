@@ -97,7 +97,7 @@ body{
         padding: 10px 50px 0 50px;
     }
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     #blog .blog-card {
         display: flex;
         flex-direction: column;

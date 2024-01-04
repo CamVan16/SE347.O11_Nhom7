@@ -133,6 +133,37 @@ if(document.readyState == 'loading') {
 }else {
   ready();
 }
+function checkAndProceedToCheckout() {
+  if (basket.length == 0) {
+    openCustomPopup("Bạn chưa có sản phẩm nào để thanh toán! Hãy thêm sản phẩm vào giỏ hàng.");
+  } else {
+    window.location.href = "../pages/checkout.html";
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  
+  document.querySelector('.btn-buy').addEventListener('click', function () {
+    checkAndProceedToCheckout();
+  });
+});
+function openCustomPopup(message) {
+  document.getElementById('popupMessage').innerHTML = message;
+  document.getElementById('customPopup').style.display = 'block';
+
+  setTimeout(function() {
+    closePopup();
+  }, 3000);
+}
+
+document.addEventListener("DOMContentLoaded", function closePopup() {
+  var but = document.querySelector(".close");
+  but.addEventListener("click", () => {
+  document.getElementById("customPopup").style.display = "none"
+  window.location.href = "./store.html";
+
+}) 
+});
 async function ready() {
   await getData()
   generateCart()

@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(nextSlide, slideDuration);
 });
 
+
 //dropdown navbar
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("bar").addEventListener("click", function () {
@@ -55,9 +56,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+//lọc
+// Khi nhấp vào thương hiệu
 
+document.addEventListener("DOMContentLoaded", function () {
+  var favItems = document.querySelectorAll(".list-brand div");
+
+  favItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var selectedBrand = item.getAttribute("data-brand");
+      window.location.href = "store.html?brand=" + encodeURIComponent(selectedBrand);
+    });
+  });
+});
+
+// Khi nhấp vào mùi hương
+
+document.addEventListener("DOMContentLoaded", function () {
+  var favItems = document.querySelectorAll(".list-fav div");
+
+  favItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var selectedScent = item.getAttribute("data-scent");
+      window.location.href = "store.html?scent=" + encodeURIComponent(selectedScent);
+    });
+  });
+});
 //đăng ký, kiểm tra password
 //eye-login
+import { user } from "./datauser.js";
 document.addEventListener("DOMContentLoaded", function () {
   var passwordInput = document.getElementById("password");
   var togglePassword = document.getElementById("toggle-password");
@@ -151,6 +178,8 @@ async function regis(event) {
 
   return false;
 }
+
+
 // Function to show a general pop-up
 function showPopup(message) {
   var popupMessage = document.getElementById("popup-message");
@@ -166,75 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("popup").style.display = "none"
 }) 
 });
-//kiểm tra việc đăng ký
-// document.addEventListener("DOMContentLoaded", function () {
-//   var regisForm = document.getElementById("form-register");
-//   regisForm.addEventListener("submit", function (event) {
-//     var password = document.getElementById("pass").value;
-//     var confirmPassword = document.getElementById("repass").value;
-//     var errorContainer = document.getElementById("password-error");
 
-//     if (password !== confirmPassword) {
-//       errorContainer.textContent = "Mật khẩu nhập lại không khớp!";
-//       event.preventDefault();
-//     } else {
-//       errorContainer.textContent = "";
-//       return regis(event);
-//     }
-//   });
-// });
-document.addEventListener("DOMContentLoaded", function () {
-  var regisForm = document.getElementById("form-register");
-
-  regisForm.addEventListener("submit", function (event) {
-    var password = document.getElementById("pass").value;
-    var confirmPassword = document.getElementById("repass").value;
-    var email = document.getElementById("email").value;
-    
-    var errorContainer = document.getElementById("error-message");
-    var passwordErrorContainer = document.getElementById("password-error");
-    var errorMessage = document.getElementById("error-email");
-
-    var hasError = false;
-
-      if (!isValidEmail(email)) {
-          errorMessage.textContent = "Vui lòng nhập đúng định dạng email!";
-          event.preventDefault();
-          hasError = true;
-      } else {
-          errorMessage.textContent = "";
-      }
-
-    function isValidEmail(email) {
-        // Biểu thức chính quy kiểm tra định dạng email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        // Kiểm tra xem email có khớp với biểu thức chính quy không
-        return emailRegex.test(email);
-     }
-
-    // Kiểm tra mật khẩu đầu vào
-    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/.test(password)) {
-      errorContainer.textContent = "Mật khẩu tối thiểu 8 ký tự bao gồm số, chữ in thường, chữ in hoa và ký tự đặc biệt.";
-      event.preventDefault();
-      hasError = true;
-    } else {
-      errorContainer.textContent = "";
-    }
-
-    // Kiểm tra khớp mật khẩu
-    if (password !== confirmPassword) {
-      passwordErrorContainer.textContent = "Mật khẩu nhập lại không khớp!";
-      event.preventDefault();
-      hasError = true;
-    } else {
-      passwordErrorContainer.textContent = "";
-    }
-    if (!hasError) {
-      return regis(event);
-    }
-  });
-});
 
 //Đăng nhập
 
@@ -500,7 +461,8 @@ document.addEventListener("DOMContentLoaded", function () {
       var confirmNewPassword = document.getElementById("confirm-new-password").value;
     
       if (newPassword !== confirmNewPassword) {
-        alert("Mật khẩu mới và xác nhận mật khẩu mới không khớp.");
+        openCustomPopup("Mật khẩu mới và xác nhận mật khẩu mới không khớp.",3000);
+        // alert("Mật khẩu mới và xác nhận mật khẩu mới không khớp.");
       } else {
         try {
           const access_token = localStorage.getItem("access_token_SM");
@@ -518,10 +480,12 @@ document.addEventListener("DOMContentLoaded", function () {
           const errorData = await response.json();
           console.log(errorData)
           if (errorData.err == 1) {
-            alert("Mật khẩu hiện tại không đúng mời bạn nhập lại!");
+            // alert("Mật khẩu hiện tại không đúng mời bạn nhập lại!");
+            openCustomPopup("Mật khẩu hiện tại không đúng mời bạn nhập lại!",3000);
           }
           else if (errorData.err == 2) {
-            alert("Mật khẩu đã được thay đổi thành công!");
+            // alert("Mật khẩu đã được thay đổi thành công!");
+            openCustomPopup("Mật khẩu đã được thay đổi thành công!",3000);
             localStorage.setItem("isLoggedIn", "false");
             window.location.href = "./home.html";
           } 
@@ -533,9 +497,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     }
-    
-  
-
   function showChangePasswordForm() {
     proWrapper.style.display = "none";
     changeWrapper.style.display = "block";
@@ -544,27 +505,50 @@ document.addEventListener("DOMContentLoaded", function () {
         <h1 class="form-heading">Đổi mật khẩu</h1>
         <div class="form-group">
           <i class="far fa-user"></i>
-          <input id="new-username" class="form-input" placeholder="Mật khẩu hiện tại">
+          <input id="new-username" type="password" class="form-input" placeholder="Mật khẩu hiện tại">
+          <i class="far fa-eye" id="oldpassword"></i>
         </div>
         <div class="form-group">
           <i class="fas fa-key"></i>
           <input id="new-password" type="password" class="form-input" placeholder="Mật khẩu mới">
+          <i class="far fa-eye" id="newpassword"></i>
         </div>
         <div class="form-group">
           <i class="fa-solid fa-lock"></i>
           <input id="confirm-new-password" type="password" class="form-input" placeholder="Nhập lại mật khẩu mới">
+          <i class="far fa-eye" id="rnewpassword"></i>
         </div>
         <div class="bt-update">
           <input type="submit" value="Lưu" class="user-form" >
         </div>
       </form>
-     
+      <div id="passPopup" class="popup">
+            <div class="popup-content">
+                <p id="popupMessage"></p>
+            </div>
+        </div> 
 
     `;
 
     document.getElementById("changePasswordForm").onsubmit = changePassword;
   }
 });
+
+function openCustomPopup(message, displayTime) {
+  var popupMessageElement = document.getElementById('popupMessage');
+  var customPopupElement = document.getElementById('passPopup');
+
+  popupMessageElement.innerHTML = message;
+  customPopupElement.style.display = 'block';
+
+  // Thiết lập thời gian hiển thị popup
+  setTimeout(function() {
+    customPopupElement.style.display = 'none';
+  }, displayTime);
+}
+
+
+//Đăng xuất
 
 document.addEventListener("DOMContentLoaded", function () {
   var logoutbutton = document.getElementById("logout");
@@ -578,34 +562,63 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "./home.html";
   });
 });
-// Khi nhấp vào thương hiệu (Tú)
-
+//đăng nhập
 document.addEventListener("DOMContentLoaded", function () {
-  var favItems = document.querySelectorAll(".list-brand div");
+  var regisForm = document.getElementById("form-register");
 
-  favItems.forEach(function (item) {
-    item.addEventListener("click", function () {
-      var selectedBrand = item.getAttribute("data-brand");
-      window.location.href = "store.html?brand=" + encodeURIComponent(selectedBrand);
-    });
+  regisForm.addEventListener("submit", function (event) {
+    var password = document.getElementById("pass").value;
+    var confirmPassword = document.getElementById("repass").value;
+    var email = document.getElementById("email").value;
+
+    var errorContainer = document.getElementById("error-message");
+    var passwordErrorContainer = document.getElementById("password-error");
+    var errorMessage = document.getElementById("error-email");
+
+    var hasError = false;
+
+    function isValidEmail(email) {
+      // Biểu thức chính quy kiểm tra định dạng email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      // Kiểm tra xem email có khớp với biểu thức chính quy không
+      return emailRegex.test(email);
+    }
+
+    if (!isValidEmail(email)) {
+      errorMessage.textContent = "Vui lòng nhập đúng định dạng email!";
+      event.preventDefault();
+      hasError = true;
+    } else {
+      errorMessage.textContent = "";
+    }
+
+    // Kiểm tra mật khẩu đầu vào
+    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,20}$/.test(password)) {
+      errorContainer.textContent = "Mật khẩu tối thiểu 8 ký tự bao gồm số, chữ in thường, chữ in hoa.";
+      event.preventDefault();
+      hasError = true;
+    } else {
+      errorContainer.textContent = "";
+    }
+
+    // Kiểm tra khớp mật khẩu
+    if (password !== confirmPassword) {
+      passwordErrorContainer.textContent = "Mật khẩu nhập lại không khớp!";
+      event.preventDefault();
+      hasError = true;
+    } else {
+      passwordErrorContainer.textContent = "";
+    }
+
+    if (!hasError) {
+      return regis(event);
+    }
   });
 });
 
-// Khi nhấp vào mùi hương (Tú)
-
-document.addEventListener("DOMContentLoaded", function () {
-  var favItems = document.querySelectorAll(".list-fav div");
-
-  favItems.forEach(function (item) {
-    item.addEventListener("click", function () {
-      var selectedScent = item.getAttribute("data-scent");
-      window.location.href = "store.html?scent=" + encodeURIComponent(selectedScent);
-    });
-  });
-});
-//load store
 function start() {
   formregis();
-  // loadUser()
+
 }
 start();

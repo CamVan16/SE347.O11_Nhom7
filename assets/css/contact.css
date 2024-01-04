@@ -71,7 +71,7 @@ textarea {
 
 .btn-contact {
     color: #fff;
-    background-color:#E42024;
+    background-color: #07503d;
     text-decoration: none;
     padding: 8px 16px;
     display: block;
@@ -134,7 +134,7 @@ textarea {
 }
 #offer .btn-offer {
     color: #fff;
-    background-color: #E42024;
+    background-color: #07503d;
     height: 3.125rem;
     padding: 0 30px;
     font-size: 18px;
@@ -157,7 +157,7 @@ textarea {
     width: 40%;
 }
 
-@media (max-width: 46.1875em){
+@media (max-width: 768px){
 
     .s-col-full{
         width: 100%;
@@ -199,7 +199,7 @@ textarea {
 
 }
 
-@media (max-width:63.9375em) {
+@media (max-width:1024px) {
 
     #offer .text {
         margin-bottom: 16px;
