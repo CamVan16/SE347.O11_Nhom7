@@ -594,13 +594,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Kiểm tra mật khẩu đầu vào
-    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,20}$/.test(password)) {
-      errorContainer.textContent = "Mật khẩu tối thiểu 8 ký tự bao gồm số, chữ in thường, chữ in hoa.";
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,20}$/;
+
+    if (!passwordRegex.test(password)) {
+      errorContainer.textContent = "Mật khẩu tối thiểu 8 ký tự bao gồm số, chữ in thường, chữ in hoa và ký tự đặc biệt";
       event.preventDefault();
       hasError = true;
     } else {
       errorContainer.textContent = "";
     }
+
 
     // Kiểm tra khớp mật khẩu
     if (password !== confirmPassword) {
