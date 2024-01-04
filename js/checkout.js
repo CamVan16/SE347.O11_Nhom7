@@ -165,19 +165,11 @@ document.addEventListener('DOMContentLoaded', function () {
       const flag = await response.json();
 
       if (basket.length == 0 ) {
-<<<<<<< Updated upstream
         openCustomPopup("Bạn chưa có sản phẩm nào để thanh toán! Hãy tới cửa hàng để chọn sản phẩm");}
       else {
         
         // alert("Chúc mừng bạn đã đặt hàng thành công!")
         openCustomPopup('Chúc mừng bạn đã đặt hàng thành công!');
-=======
-        openCustomPopup("Bạn chưa có sản phẩm nào để thanh toán! Hãy tới cửa hàng để chọn sản phẩm")
-      } else {
-        openCustomPopup("Chúc mừng bạn đã đặt hàng thành công!");
-
-        // alert("Chúc mừng bạn đã đặt hàng thành công!")
->>>>>>> Stashed changes
         username.value = ""
         address.value = ""
         email.value = ""
