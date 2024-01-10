@@ -8,7 +8,7 @@ function sendContact(){
       SecureToken : "7dc5821d-de66-4b64-921a-d814a14d787e",
       To : 'tutu050903@gmail.com',
       From : 'tutu050903@gmail.com',
-      Subject : subject,
+      Subject : "Gửi liên hệ",
       Body : body
   })
   }

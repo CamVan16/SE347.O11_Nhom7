@@ -1,0 +1,216 @@
+html,
+* {
+    font-family: 'public sans', sans-serif;
+}
+
+div,
+main,
+section,
+article,
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    --blue: #0B63F8;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 1.5rem 1rem 1rem;
+}
+
+.search-customer {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    font-size: 1rem;
+}
+
+.search-customer__card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0.25rem;
+    /* background-color: brown; */
+    gap: 1rem;
+}
+
+/* Slider */
+/* .search-customer__card input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    border-radius: 15px;
+    height: 6px;
+    background: #ccc;
+}
+
+.search-customer__card input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 15px;
+    width: 15px;
+    background-color: #f50;
+    border-radius: 50%;
+    border: none;
+    transition: 0.2s ease-in-out;
+}
+
+.search-customer__card input[type="range"]::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    background-color: #f50;
+    border-radius: 50%;
+    border: none;
+    transition: 0.2s ease-in-out;
+}
+
+.search-customer__card input[type="range"]::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 10px rgba(255, 85, 0, 0.1);
+}
+.search-customer__card input[type="range"]:active::-webkit-slider-thumb {
+    box-shadow: 0 0 0 13px rgba(255, 85, 0, 0.2);
+}
+.search-customer__card input[type="range"]:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 13px rgba(255, 85, 0, 0.2);
+}
+
+.search-customer__card input[type="range"]::-moz-range-thumb:hover {
+    box-shadow: 0 0 0 10px rgba(255, 85, 0, 0.1);
+}
+.search-customer__card input[type="range"]:active::-moz-range-thumb {
+    box-shadow: 0 0 0 13px rgba(255, 85, 0, 0.2);
+}
+.search-customer__card input[type="range"]:focus::-moz-range-thumb {
+    box-shadow: 0 0 0 13px rgba(255, 85, 0, 0.2);
+} */
+
+.search-customer__input-text {
+    /* height: 2rem; */
+    padding: 0.75rem;
+    border: 1px solid gray;
+    border-radius: 0.25rem;
+}
+
+.search-customer__input-number {
+    padding: 0.95em;
+    border: 1px solid gray;
+    border-radius: 0.75rem;
+    width: 4.5rem;
+}
+
+/* List container */
+.list-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* padding-top: 2rem; */
+    font-size: 1rem;
+    background-color: white;
+    overflow: hidden;
+    overflow-y: auto;
+    /* overflow-x: auto; */
+}
+
+.list-container input[type='checkbox'] {
+    width: 1rem;
+    height: 1rem;
+}
+
+.list-container .cell-center {
+    text-align: center;
+}
+
+.list-container .cell-start {
+    text-align: left;
+}
+
+.list-container .list-container__name {
+    max-width: 15rem;
+}
+
+.list-container .list-container__name>p {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.list-container tr {
+    height: 3rem;
+}
+
+.list-container tbody tr td:nth-child(2) {
+    color: var(--blue);
+}
+
+.hover {
+    cursor: pointer;
+}
+
+/* Customer footer */
+.customers-footer {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+}
+
+.customers-footer .pagination {
+    display: flex;
+    flex-direction: row;
+}
+
+.customers-footer a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    background-color: white;
+    font-weight: bold;
+}
+
+.customers-footer a.active {
+    border: 1px solid #4200FF;
+}
+
+.customers-footer button {
+    position: absolute;
+    background-color: #9ecaff;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    top: 50%;
+    right: 0;
+    transform: translate(0%, -50%);
+    cursor: pointer;
+    transition: opacity 0.25s;
+    color: gray;
+}
+
+.customers-footer button:hover {
+    opacity: 0.85;
+}

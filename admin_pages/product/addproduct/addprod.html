@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm sản phẩm</title>
+    <link rel="stylesheet" href="./addprod.css">
+</head>
+<body>
+    <header>
+        <h2>Thêm sản phẩm</h2>
+    </header>
+    <div class="main">
+        <div class="container">
+            <form action="../../../../controllers/product-controller.php" method="POST" value='create'>
+                <h2>Thêm sản phẩm</h2>
+                <br>
+                <input type="hidden" name="action" value="create">
+                <div>
+                    <label for="productName">Tên sản phẩm : </label>
+                    <input class="form-control" type="text" id="productName" name="productName" placeholder="Nhập tên sản phẩm">
+                </div>
+                <div>
+                    <label for="productPrice">Giá : </label>
+                    <input class="form-control" type="text" id="productPrice" name="productPrice" placeholder="Nhập giá sản phẩm">
+                </div>
+                <div>
+                    <label for="productSex">Giới tính : </label>
+                    <select name="productSex" id="productSex">
+                        <option value=1>Nam</option>
+                        <option value=2>Nữ</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="productIncense">Mùi hương : </label>
+                    <input class="form-control" type="text" id="productIncense" name="productIncense" placeholder="Nhập mùi hương sản phẩm">
+                </div>
+                <div>
+                    <label for="Concentration">Nồng độ : </label>
+                    <input class="form-control" type="text" id="Concetration" name="Concentration" placeholder="Nhập nồng độ sản phẩm">
+                </div>
+                <div>
+                    <label for="Brand">Thương hiệu : </label>
+                    <input class="form-control" type="text" id="Brand" name="Brand" placeholder="Nhập thương hiệu sản phẩm">
+                </div>
+                <div>
+                    <label for="Origin">Xuất xứ : </label>
+                    <input class="form-control" type="text" id="Origin" name="Origin" placeholder="Nhập xuất xứ sản phẩm">
+                </div>
+                <div>
+                    <label for="Style">Phong cách : </label>
+                    <input class="form-control" type="text" id="Style" name="Style" placeholder="Nhập phong cách sản phẩm">
+                </div>
+                <!-- mô tả sản phẩm -->
+                <div>
+                    <label for="productDescription">Mô tả : </label>
+                    <textarea class="form-control" name="productDescription" id="productDescription" style="height: 100px;" placeholder="Nhập mô tả sản phẩm"></textarea>
+                </div>
+                <!-- ảnh sản phẩm -->
+                <div>
+                    <label for="productImage">Ảnh : </label>
+                    <input class="form-control" type="text" id="productImage" name="productImage" placeholder="nhập image link của sản phẩm">
+                </div>
+                <button style="cursor: pointer;">
+                    Lưu
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

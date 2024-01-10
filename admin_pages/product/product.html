@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sản phẩm</title>
+    <link rel="stylesheet" href="./product.css">
+</head>
+<body>
+    <main class="product-management-content">
+        <div class="product-management-title">
+            <h1>Quản lí sản phẩm</h1>
+        </div>
+
+        <div class="product-management-filter">
+            <div class="product-management-filter-option">
+                <label>Mã sản phẩm</label>
+                <input type="text" id="product-id" class="product-management-filter-text" placeholder="Mã sản phẩm">
+            </div>
+            <div class="product-management-filter-option">
+                <label>Tên sản phẩm</label>
+                <input type="text" id="product-name" class="product-management-filter-text" placeholder="Tên sản phẩm">
+            </div>
+            <div class="product-management-filter-option">
+                <label>Giá sản phẩm</label>
+                <div class="product-management-filter-option-range">
+                    <input type="text" id="product-min-price" class="product-management-filter-text" value="0">
+                    <input type="text" id="product-max-price" class="product-management-filter-text" value="500.000">
+                </div>
+            </div>
+        </div>
+
+        <div class="product-management-list">
+            <table class="product-management-table" id="product-table">
+                <tr class="product-management-table-row">
+                    <th><input type="checkbox"></th>
+                    <th><label>Mã sản phẩm</label></th>
+                    <th><label>Tên sản phẩm</label></th>
+                    <th><label>Giá sản phẩm</label></th>
+                    <th><label>Hành động</label></th>
+                </tr>
+            </table>
+        </div>
+        <div class="product-management-add-product">
+            <a href="../product/addproduct/addprod.html">
+                <button>Thêm sản phẩm</button>
+            </a>
+        </div>
+    </main>
+    <script src="./product.js"></script>
+</body>
+</html>

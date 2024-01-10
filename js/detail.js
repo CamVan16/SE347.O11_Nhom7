@@ -15,7 +15,7 @@ async function getData() {
     .catch(err => {
       console.log(err)
     })
-  }
+}
 
 function handleURL(){
     var url = window.location.href;

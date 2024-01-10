@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý khách hàng</title>
+    <link rel="stylesheet" href="./customer.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Quản lý khách hàng</h1>
+
+        <!-- Thanh top bar chứa các input -->
+        <div class="search-customer">
+            <div class="search-customer__card">
+                <label for="customer-id"> Mã khách hàng </label>
+                <input class="search-customer__input-text" type="text" name="customer-id" id="customer-id" placeholder="Nhập mã sản phẩm" />
+            </div>
+            <div class="search-customer__card">
+                <label for="customer-name"> Tên khách hàng </label>
+                <input class="search-customer__input-text" type="text" name="customer-name" id="customer-name" placeholder="Nhập tên khách hàng" />
+            </div>
+            <div class="search-customer__card">
+                <label for="#">Tổng thanh toán</label>
+                <div class="flex-row justify-between">
+                    <input type="text" name="payment-start" id="payment-start" class="search-customer__input-number" placeholder="0đ" />
+                    <input type="text" name="payment-end" id="payment-end" class="search-customer__input-number" placeholder="500đ" />
+                </div>
+            </div>
+            <div class="search-customer__card">
+                <label for="#">Số lượt mua</label>
+                <div class="flex-row justify-between">
+                    <input type="text" name="purchase-start" id="purchase-start" class="search-customer__input-number" placeholder="0" />
+                    <input type="text" name="purchase-end" id="purchase-end" class="search-customer__input-number" placeholder="100" />
+                </div>
+            </div>
+        </div>
+
+        <div class="list-container">
+            <table class="customer-management-table" id="customer-table">
+                <tr class="customer-management-table-row">
+                    <th><input type="checkbox"></th>
+                    <th><label>Mã khách hàng</label></th>
+                    <th><label>Tên khách hàng</label></th>
+                    <th><label>Số điện thoại</label></th>
+                    <th><label>Email</label></th>
+                    <th><label>Địa chỉ</label></th>
+                    <th><label>Hành động</label></th>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <script type="module" src="./customer.js"></script>
+</body>
+</html>
