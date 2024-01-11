@@ -13,7 +13,8 @@ const initRoutes = (app) => {
   app.use ('/api/v1/get-pro',product)
   app.use ('/api/v1/get-blog',blog)
   app.use ('/api/v1/checkout',purchaseHis)
-  
+  app.use('/api/v1/get-purchase-history', purchaseHis)
+  app.use ('/api/v1/get-user',user)
   app.use(notFound)
 };
 module.exports = initRoutes;

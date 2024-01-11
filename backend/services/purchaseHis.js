@@ -36,6 +36,7 @@ export const checkout = (data) =>
 
       const proList = data.proList;
       const payment = data.payment;
+      const amountPaid= data.amountPaid;
 
       // Create a new cart
       const newCart = await db.Cart.create({ isPurchased: 0 });
@@ -53,6 +54,7 @@ export const checkout = (data) =>
           userID: userId,
           cartID: newCart.id,
           payment: payment,
+          amountPaid: amountPaid,
         });
       }
 
@@ -66,21 +68,16 @@ export const checkout = (data) =>
     }
   });
 
-// export const getOneLis = ( access_token ) =>
-// new Promise(async (resolve, reject) => {
-//   try {
-//     const response = await db.User.findOne({
-//       where: { id: userId },
-//       attributes:{
-//           exclude: ['password']
-//       }
-//     });
-//     resolve({
-//       err: response ? 0 : 1,
-//       mes: response ? "Got user successfully" : "User not found",
-//       userData: response
-//     });
-//   } catch (error) {
-//       reject(error)
-//   }
-// });
+  export const getPurchaseData = () =>
+  new Promise(async (resolve, reject) => {
+    try {
+      const response = await db.PurchaseHistory.findAll({});
+      resolve({
+        err: response ? 0 : 1,
+        mes: response ? "Got purchase history data successfully" : "Purchase history data not found",
+        purchaseData: response
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });

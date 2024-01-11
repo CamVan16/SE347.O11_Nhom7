@@ -25,7 +25,7 @@ module.exports = {
           }
         },
         payment: { type: Sequelize.INTEGER },
-        amountPaid: { type: Sequelize.STRING },
+        amountPaid: { type: Sequelize.INTEGER },
         createdAt: {
         allowNull: false,
         type: "TIMESTAMP",

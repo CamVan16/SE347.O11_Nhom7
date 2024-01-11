@@ -10,26 +10,8 @@
     <main class="product-management-content">
         <div class="product-management-title">
             <h1>Quản lí sản phẩm</h1>
+            <span id="totalItem"></span>
         </div>
-
-        <div class="product-management-filter">
-            <div class="product-management-filter-option">
-                <label>Mã sản phẩm</label>
-                <input type="text" id="product-id" class="product-management-filter-text" placeholder="Mã sản phẩm">
-            </div>
-            <div class="product-management-filter-option">
-                <label>Tên sản phẩm</label>
-                <input type="text" id="product-name" class="product-management-filter-text" placeholder="Tên sản phẩm">
-            </div>
-            <div class="product-management-filter-option">
-                <label>Giá sản phẩm</label>
-                <div class="product-management-filter-option-range">
-                    <input type="text" id="product-min-price" class="product-management-filter-text" value="0">
-                    <input type="text" id="product-max-price" class="product-management-filter-text" value="500.000">
-                </div>
-            </div>
-        </div>
-
         <div class="product-management-list">
             <table class="product-management-table" id="product-table">
                 <tr class="product-management-table-row">
@@ -42,11 +24,12 @@
             </table>
         </div>
         <div class="product-management-add-product">
-            <a href="../product/addproduct/addprod.html">
-                <button>Thêm sản phẩm</button>
+            <a href="../admin_pages/product/addproduct/addprod.html">
+                <button id="addProductButton">Thêm sản phẩm</button>
             </a>
         </div>
     </main>
     <script src="./product.js"></script>
+    <script src="../product/editprod/editprod.js"></script>
 </body>
 </html>

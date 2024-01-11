@@ -10,3 +10,15 @@ export const checkout = async (req, res) => {
     return internalServerError(res);
   }
 };
+
+export const getPurchaseHistoryData = async (req, res) => {
+  try {
+    const response = await services.getPurchaseData();
+    return res.status(200).json(response);
+  } catch (error) {
+    return internalServerError(res);
+  }
+};
+
+
+

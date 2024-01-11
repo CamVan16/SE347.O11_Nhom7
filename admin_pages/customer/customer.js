@@ -1,41 +1,32 @@
-const API_URL = 'http://localhost:3000/api/v1'
-// var accessToken = require('../js/home').accessToken;
-import { accessToken } from '../js/home.js';
-console.log('accessToken');
-document.addEventListener("DOMContentLoaded", function () {
-    // Thực hiện yêu cầu API để lấy thông tin người dùng khi trang đã tải xong
-    fetchUserData();
-  });
-  async function fetchUserData() {
-    try {
-      const response = await fetch(`${API_URL}/get-blog`, {
-        method: 'GET',
-        headers: {
-          'Authorization': accessToken, 
-          'Content-Type': 'application/json',
-        },
-      });
-  
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-  
-      const userData = await response.json();
-      console.log(userData);
-      displayData()
-    } catch (error) {
-      console.error('Error fetching user data:', error.message);
-    }
-  }
-function displayData() {
+document.getElementById('customerLink').addEventListener('click', async function(event) {
+  event.preventDefault(); // Ngăn chặn chuyển hướng
+    fetch('../admin_pages/customer/customer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('content').innerHTML = data;
+            let customer
+            async function getCusData() {
+                await fetch(`${API_URL}/get-user`)
+                .then(res => res.json())
+                .then(data => {
+                    customer = data.userData;
+                    console.log(customer);
+                    displayCus();
+                    totalCus();
+                    })
+                    .catch(err => {
+                    console.log(err)
+            })
+          }
+function displayCus() {
     const cusTable = document.getElementById("customer-table");
-    for (const cus of userData) {
-      const row = createProductRow(cus);
+    for (const cus of customer) {
+      const row = createCusRow(cus);
       cusTable.appendChild(row);
     }
   }
   
-  function createProductRow(cus) {
+  function createCusRow(cus) {
     const row = document.createElement("tr");
     row.classList.add("customer-management-table-row");
   
@@ -63,16 +54,14 @@ function displayData() {
     const addressCell = document.createElement("td");
     addressCell.textContent = cus.address;
     row.appendChild(addressCell);
-
-    const actionCell = document.createElement("td");
-    const detailLink = document.createElement("a");
-    detailLink.href = `./detail.html?id=${product.id}`;
-    detailLink.textContent = 'Xem chi tiết';
-    actionCell.appendChild(detailLink);
-  
-    row.appendChild(actionCell);
-  
     return row;
   }
-
-getData();
+  function totalCus(){
+    const totalCustomer=document.getElementById("totalCus");
+    var totalLength=customer.length;
+    totalCustomer.textContent='Số lượng khách hàng:' + totalLength;
+}
+  getCusData();
+  })
+  .catch(error => console.error('Error:', error));
+});

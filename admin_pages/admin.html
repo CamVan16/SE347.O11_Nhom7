@@ -6,12 +6,29 @@
     <title>Admin</title>
     <script src="https://kit.fontawesome.com/757ea42d8a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./admin.css">
+    <link rel="stylesheet" href="../admin_pages/product/product.css">
 </head>
 <body>
     <section id="header-admin"> RADIANTE - ADMIN</section>
     <div class="sidebar-container">
         <main class="admin-layout">
             <div class="sidebar">
+                <a href="../admin_pages/product/product.html" class="sidebar-item" id="productLink">
+                    <div class="sidebar-item-container" id="product">
+                        <div class="sidebar-item-icon">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </div>
+                        <p>Sản phẩm</p>
+                    </div>
+                </a>
+                <a href="../admin_pages/customer/customer.html" class="sidebar-item" id="customerLink">
+                    <div class="sidebar-item-container" id="customer">
+                        <div class="sidebar-item-icon">
+                            <i class="fa-solid fa-person"></i>
+                        </div>
+                        <p>Khách hàng</p>
+                    </div>
+                </a>
                 <a href="/sportswear/pages/admin/order" class="sidebar-item">
                     <div class="sidebar-item-container" id="order">
                         <div class="sidebar-item-icon">
@@ -20,23 +37,7 @@
                         <p>Đơn hàng</p>
                     </div>
                 </a>
-                <a href="../admin_pages/product/product.html" class="sidebar-item">
-                    <div class="sidebar-item-container" id="product">
-                        <div class="sidebar-item-icon">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                        </div>
-                        <p>Sản phẩm</p>
-                    </div>
-                </a>
-                <a href="/sportswear/pages/admin/customer" class="sidebar-item">
-                    <div class="sidebar-item-container" id="customer">
-                        <div class="sidebar-item-icon">
-                            <i class="fa-solid fa-person"></i>
-                        </div>
-                        <p>Khách hàng</p>
-                    </div>
-                </a>
-                <a href="/sportswear/pages/admin/report" class="sidebar-item">
+                <a href="../admin_pages/sales/sales.html" class="sidebar-item" id="salesLink">
                     <div class="sidebar-item-container" id="revenue">
                         <div class="sidebar-item-icon">
                             <i class="fa-solid fa-dollar-sign"></i>
@@ -46,7 +47,11 @@
                 </a>
             </div>
 
-            <div class="content"></div>
+            <div class="content" id="content"></div>
     </div>
+    <script src="./admin.js"></script>
+    <script src="../admin_pages/product/product.js"></script>
+    <script src="../admin_pages/sales/sales.js"></script>
+    <script src="../admin_pages/customer/customer.js"></script>
 </body>
 </html>

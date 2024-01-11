@@ -20,3 +20,12 @@ export const updateUserInfo = async (req, res) => {
   }
 };
 
+export const getCustomerData = async (req, res) => {
+  try {
+    const response = await services.getUserData();
+    return res.status(200).json(response);
+  } catch (error) {
+    return internalServerError(res);
+  }
+};
+

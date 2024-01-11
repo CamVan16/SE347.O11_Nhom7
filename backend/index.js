@@ -13,7 +13,6 @@ app.use(morgan('combined'))
 //CRUD
 app.use(express.json())
 app.use(express.urlencoded({extend: true }));
-
 initRoutes(app)
 
 const PORT = process.env.PORT || 8888

@@ -52,3 +52,16 @@ export const getOne = ( userId ) =>
       reject(error);
     }
   });
+  export const getUserData = () =>
+  new Promise(async (resolve, reject) => {
+    try {
+      const response = await db.User.findAll({});
+      resolve({
+        err: response ? 0 : 1,
+        mes: response ? "Got user data successfully" : "User data not found",
+        userData: response
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
