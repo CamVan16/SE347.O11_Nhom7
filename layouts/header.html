@@ -21,61 +21,53 @@
     <script type="module" src="../js/store.js"></script>
     <script src="https://kit.fontawesome.com/757ea42d8a.js" crossorigin="anonymous"></script>
 </head>
-<script>
-    // Khi nhấp vào thương hiệu
 
-document.addEventListener("DOMContentLoaded", function () {
-  var favItems = document.querySelectorAll(".list-brand div");
-
-  favItems.forEach(function (item) {
-    item.addEventListener("click", function () {
-      var selectedBrand = item.getAttribute("data-brand");
-      window.location.href = "store.html?brand=" + encodeURIComponent(selectedBrand);
-    });
-  });
-});
-
-// Khi nhấp vào mùi hương
-
-document.addEventListener("DOMContentLoaded", function () {
-  var favItems = document.querySelectorAll(".list-fav div");
-
-  favItems.forEach(function (item) {
-    item.addEventListener("click", function () {
-      var selectedScent = item.getAttribute("data-scent");
-      window.location.href = "store.html?scent=" + encodeURIComponent(selectedScent);
-    });
-  });
-});
-document.addEventListener("DOMContentLoaded", function () {
-  var favItems = document.querySelectorAll(".list-sex div");
-
-  favItems.forEach(function (item) {
-    item.addEventListener("click", function () {
-      var selectedSex = item.getAttribute("data-sex");
-      window.location.href = "store.html?sex=" + encodeURIComponent(selectedSex);
-    });
-  });
-});
-document.addEventListener("DOMContentLoaded", function () {
-  var favItems = document.querySelectorAll(".list-origin div");
-
-  favItems.forEach(function (item) {
-    item.addEventListener("click", function () {
-      var selectedOrigin = item.getAttribute("data-origin");
-      window.location.href = "store.html?origin=" + encodeURIComponent(selectedOrigin);
-    });
-  });
-});
-</script>
 <style>
-    .drop-menu{
-        display:flex;
-    }
-    .drop-menu div div{
-        display: block;
-    }
+.drop-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff; 
+  border: 1px solid #ccc; 
+  padding: 10px;
+  z-index: 1000; 
+}
+
+.menu-list:hover .drop-menu {
+  display: block;
+}
+
+.drop-menu h3 {
+    
+  margin: 0;
+  padding: 8px 0;
+}
+.drop-menu div div {
+    /* display: none; */
+}
+.drop-menu div div:hover {
+    display: block;  
+    background-color:#07503d; 
+    color: #fff;
+}
+
 </style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+  var storeLink = document.querySelector(".menu-list a[href='../pages/store.html']");
+  var dropMenu = document.querySelector(".drop-menu");
+
+  // Hiển thị drop-menu khi di chuột vào thẻ cửa hàng
+  storeLink.addEventListener("mouseenter", function () {
+    dropMenu.classList.add("active");
+  });
+
+  // Ẩn drop-menu khi di chuột ra khỏi cửa hàng
+  storeLink.addEventListener("mouseleave", function () {
+    dropMenu.classList.remove("active");
+  });
+});
+
+</script>
 <body>
     <div class="dark-mode"></div>
     <section id="header">
@@ -110,9 +102,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div data-brand="Creed">
                                 <p>Creed</p>
                             </div>
-                            <div data-brand="Curve">
+                            <!-- <div data-brand="Curve">
                                 <p>Curve</p>
-                            </div>
+                            </div> -->
                             <div data-brand="Dolce & Gabbana">
                                 <p>Dolce & Gabbana</p>
                             </div>
@@ -150,39 +142,39 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div data-scent="Aromatic">
                                 <p>Hương Thơm ngát</p>
                             </div>
-                            <div data-scent="Chypre">
+                            <!-- <div data-scent="Chypre">
                                 <p>Hương Síp</p>
-                            </div>
-                            <div data-scent="Citrus">
+                            </div> -->
+                            <!-- <div data-scent="Citrus">
                                 <p>Hương Cam chanh</p>
-                            </div>
-                            <div data-scent="Leather">
+                            </div> -->
+                            <!-- <div data-scent="Leather">
                                 <p>Hương Da thuộc</p>
-                            </div>
-                            <div data-scent="Oriental">
+                            </div> -->
+                            <!-- <div data-scent="Oriental">
                                 <p>Hương Phương Đông</p>
-                            </div>
-                            <div data-scent="Woody">
+                            </div> -->
+                            <!-- <div data-scent="Woody">
                                 <p>Hương Gỗ</p>
-                            </div>
+                            </div> -->
                             <div data-scent="Oriental Floral">
                                 <p>Hương Hoa cỏ Phương Đông</p>
                             </div>
                             <div data-scent="Floral Fruity">
                                 <p>Hương Hoa cỏ trái cây</p>
                             </div>
-                            <div data-scent="Woody Spicy">
+                            <!-- <div data-scent="Woody Spicy">
                                 <p>Hương Gỗ Cay Nồng</p>
-                            </div>
-                            <div data-scent="Woody Floral Musk">
+                            </div> -->
+                            <!-- <div data-scent="Woody Floral Musk">
                                 <p>Hương Gỗ Hoa cỏ Xạ hương</p>
-                            </div>
+                            </div> -->
                             <div data-scent="Floral Woody Musk">
                                 <p>Hương Hoa cỏ Gỗ Xạ hương</p>
                             </div>
-                            <div data-scent="Woody Aromatic">
+                            <!-- <div data-scent="Woody Aromatic">
                                 <p>Hương Gỗ thơm</p>
-                            </div>
+                            </div> -->
                             <div data-scent="Chypre Floral">
                                 <p>Hương Hoa cỏ Síp</p>
                             </div>
@@ -192,18 +184,18 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div data-scent="Oriental Spicy">
                                 <p>Hương Cay nồng Phương Đông</p>
                             </div>
-                            <div data-scent="Aromatic Aquatic">
+                            <!-- <div data-scent="Aromatic Aquatic">
                                 <p>Hương Thơm biển</p>
-                            </div>
+                            </div> -->
                             <div data-scent="Aromatic Fruity">
                                 <p>Hương thơm trái cây</p>
                             </div>
                             <div data-scent="Aromatic Fougere">
                                 <p>Hương Thơm Dương xỉ</p>
                             </div>
-                            <div data-scent="Aromatic Green">
+                            <!-- <div data-scent="Aromatic Green">
                                 <p>Hương Thơm cây cỏ tự nhiên</p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     

@@ -82,6 +82,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  var favItems = document.querySelectorAll(".list-sex div");
+
+  favItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var selectedSex = item.getAttribute("data-sex");
+      window.location.href = "store.html?sex=" + encodeURIComponent(selectedSex);
+    });
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  var favItems = document.querySelectorAll(".list-origin div");
+
+  favItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var selectedOrigin = item.getAttribute("data-origin");
+      window.location.href = "store.html?origin=" + encodeURIComponent(selectedOrigin);
+    });
+  });
+});
 //đăng ký, kiểm tra password
 //eye-login
 import { user } from "./datauser.js";
