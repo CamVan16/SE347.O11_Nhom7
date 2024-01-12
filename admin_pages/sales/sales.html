@@ -6,7 +6,23 @@
     <title>Doanh thu của cửa hàng</title>
 </head>
 <body>
-    <p id="totalSales"></p>
+    <!-- <p id="totalSales"></p> -->
+    <main class="container">
+        <h1>Quản lý khách hàng</h1>
+        <span id="totalSales"></span>
+        <div class="list-container">
+            <table class="order-management-table" id="order-table">
+                <tr class="order-management-table-row">
+                    <th><input type="checkbox"></th>
+                    <th><label>Mã đơn hàng</label></th>
+                    <th><label>Mã khách hàng</label></th>
+                    <th><label>Mã giỏ hàng</label></th>
+                    <th><label>Phương thức thanh toán</label></th>
+                    <th><label>Tổng tiền</label></th>
+                </tr>
+            </table>
+        </div>
+    </main>
     <script src="./sales.js"></script>
 </body>
 </html>

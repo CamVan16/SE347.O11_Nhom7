@@ -12,7 +12,7 @@
     </header>
     <div class="main">
         <div class="container">
-            <form action="../../../../controllers/product-controller.php?product_id=<?php echo $productId ?>" method="post">
+            <form>
                 <h2>Sửa sản phẩm</h2>
                 <br>
                 <input type="hidden" name="action" value="update">
@@ -61,7 +61,7 @@
                     <label for="productImage">Ảnh : </label>
                     <input class="form-control" type="text" id="productImage" name="productImage" placeholder="nhập image link của sản phẩm">
                 </div>
-                <button style="cursor: pointer;">
+                <button style="cursor: pointer;" id="edit">
                     Lưu
                 </button>
             </form>

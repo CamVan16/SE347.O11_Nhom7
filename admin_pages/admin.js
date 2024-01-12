@@ -81,5 +81,17 @@ getData();
     .catch(error => console.error('Error:', error));
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    var logoutbutton = document.getElementById("logoutAdmin");
+    var userLink = document.getElementById("user-link");
+    var mUserLink = document.getElementById("m-user-link");
+    logoutbutton.addEventListener("click", function () {
+      localStorage.setItem("isLoggedIn", "false");
+      localStorage.setItem("access_token_SM","")
+      userLink.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i>';
+      mUserLink.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i>';
+      window.location.href = "/pages/home.html";
+    });
+  });
 
 
