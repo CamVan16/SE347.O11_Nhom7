@@ -138,13 +138,10 @@ document.addEventListener('DOMContentLoaded', function () {
     e.preventDefault()
     const formData = new FormData(formEL)
     const payment = document.querySelector('input[name="payment"]:checked').value
-    const amountPaidText = document.getElementById("total-price").innerText
-    const amountPaid = amountPaidText.replace(/[^\d]/g, '');
     const data = {
       accessToken: access_token,  
       payment: payment,
       proList: basket,
-      amountPaid: amountPaid,
       // ...Object.fromEntries(formData)
     }
     console.log(data)
@@ -198,7 +195,6 @@ document.addEventListener("DOMContentLoaded", function closePopup() {
   window.location.href = "./home.html";
 }) 
 });
-
 async function start() {
   await getData()
   calculationItem()
