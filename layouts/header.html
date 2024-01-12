@@ -68,7 +68,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
-
+<style>
+    .drop-menu{
+        display:flex;
+    }
+    .drop-menu div div{
+        display: block;
+    }
+</style>
 <body>
     <div class="dark-mode"></div>
     <section id="header">
@@ -77,126 +84,129 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><i id="xmark" class="fa-solid fa-xmark"></i><br>Danh mục</li>
                 <li><a href="../pages/home.html">Trang chủ</a></li>
                 <li><a href="../pages/store.html">Cửa hàng</a>
-                    <div class="list-sex">
-                        <h3>Giới tính</h3>
-                        <div data-sex="Nam">Nam</div>
-                        <div data-sex="Nữ">Nữ</div>
+                    <div class="drop-menu">
+                        <div class="list-sex" data-list="list-sex">
+                            <h3>Giới tính</h3>
+                            <div data-sex="Nam">Nam</div>
+                            <div data-sex="Nữ">Nữ</div>
+                        </div>
+                        <div class="list-brand" data-list="list-brand">
+                            <h3>Thương hiệu</h3>
+                            <div data-brand="Abercrombie & Fitch">
+                                <p>Abercrombie & Fitch</p>
+                            </div>
+                            <div data-brand="Azzaro">
+                                <p>Azzaro</p>
+                            </div>
+                            <div data-brand="Birkholz">
+                                <p>Birkholz</p>
+                            </div>
+                            <div data-brand="Chloe">
+                                <p>Chloe</p>
+                            </div>
+                            <div data-brand="Coach">
+                                <p>Coach</p>
+                            </div>
+                            <div data-brand="Creed">
+                                <p>Creed</p>
+                            </div>
+                            <div data-brand="Curve">
+                                <p>Curve</p>
+                            </div>
+                            <div data-brand="Dolce & Gabbana">
+                                <p>Dolce & Gabbana</p>
+                            </div>
+                            <div data-brand="Gucci">
+                                <p>Gucci</p>
+                            </div>
+                            <div data-brand="Lancôme">
+                                <p>Lancôme</p>
+                            </div>
+                            <div data-brand="Prada">
+                                <p>Prada</p>
+                            </div>
+                            <div data-brand="Parfums De Marly">
+                                <p>Parfums De Marly</p>
+                            </div>
+                            <div data-brand="Versace">
+                                <p>Versace</p>
+                            </div>
+                            <div data-brand="Yves Saint Laurent">
+                                <p>Yves Saint Laurent</p>
+                            </div>  
+                        </div>
+                        <div class="list-origin" data-list="list-origin">
+                            <h3>Quốc gia</h3>
+                            <div data-origin="Đức">Đức</div>
+                            <div data-origin="Ý">ý</div>
+                            <div data-origin="Pháp">Pháp</div>
+                            <div data-origin="Mỹ">Mỹ</div>
+                        </div>
+                        <div class="list-fav" data-list="list-fav">
+                            <h3>Nhóm hương</h3>
+                            <div data-scent="Floral">
+                                <p>Hương Hoa cỏ</p>
+                            </div>
+                            <div data-scent="Aromatic">
+                                <p>Hương Thơm ngát</p>
+                            </div>
+                            <div data-scent="Chypre">
+                                <p>Hương Síp</p>
+                            </div>
+                            <div data-scent="Citrus">
+                                <p>Hương Cam chanh</p>
+                            </div>
+                            <div data-scent="Leather">
+                                <p>Hương Da thuộc</p>
+                            </div>
+                            <div data-scent="Oriental">
+                                <p>Hương Phương Đông</p>
+                            </div>
+                            <div data-scent="Woody">
+                                <p>Hương Gỗ</p>
+                            </div>
+                            <div data-scent="Oriental Floral">
+                                <p>Hương Hoa cỏ Phương Đông</p>
+                            </div>
+                            <div data-scent="Floral Fruity">
+                                <p>Hương Hoa cỏ trái cây</p>
+                            </div>
+                            <div data-scent="Woody Spicy">
+                                <p>Hương Gỗ Cay Nồng</p>
+                            </div>
+                            <div data-scent="Woody Floral Musk">
+                                <p>Hương Gỗ Hoa cỏ Xạ hương</p>
+                            </div>
+                            <div data-scent="Floral Woody Musk">
+                                <p>Hương Hoa cỏ Gỗ Xạ hương</p>
+                            </div>
+                            <div data-scent="Woody Aromatic">
+                                <p>Hương Gỗ thơm</p>
+                            </div>
+                            <div data-scent="Chypre Floral">
+                                <p>Hương Hoa cỏ Síp</p>
+                            </div>
+                            <div data-scent="Citrus Aromatic">
+                                <p>Hương Cam chanh Thơm ngát</p>
+                            </div>
+                            <div data-scent="Oriental Spicy">
+                                <p>Hương Cay nồng Phương Đông</p>
+                            </div>
+                            <div data-scent="Aromatic Aquatic">
+                                <p>Hương Thơm biển</p>
+                            </div>
+                            <div data-scent="Aromatic Fruity">
+                                <p>Hương thơm trái cây</p>
+                            </div>
+                            <div data-scent="Aromatic Fougere">
+                                <p>Hương Thơm Dương xỉ</p>
+                            </div>
+                            <div data-scent="Aromatic Green">
+                                <p>Hương Thơm cây cỏ tự nhiên</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="list-brand">
-                        <h3>Thương hiệu</h3>
-                        <div data-brand="Abercrombie & Fitch">
-                            <p>Abercrombie & Fitch</p>
-                        </div>
-                        <div data-brand="Azzaro">
-                            <p>Azzaro</p>
-                        </div>
-                        <div data-brand="Birkholz">
-                            <p>Birkholz</p>
-                        </div>
-                        <div data-brand="Chloe">
-                            <p>Chloe</p>
-                        </div>
-                        <div data-brand="Coach">
-                            <p>Coach</p>
-                        </div>
-                        <div data-brand="Creed">
-                            <p>Creed</p>
-                        </div>
-                        <div data-brand="Curve">
-                            <p>Curve</p>
-                        </div>
-                        <div data-brand="Dolce & Gabbana">
-                            <p>Dolce & Gabbana</p>
-                        </div>
-                        <div data-brand="Gucci">
-                            <p>Gucci</p>
-                        </div>
-                        <div data-brand="Lancôme">
-                            <p>Lancôme</p>
-                        </div>
-                        <div data-brand="Prada">
-                            <p>Prada</p>
-                        </div>
-                        <div data-brand="Parfums De Marly">
-                            <p>Parfums De Marly</p>
-                        </div>
-                        <div data-brand="Versace">
-                            <p>Versace</p>
-                        </div>
-                        <div data-brand="Yves Saint Laurent">
-                            <p>Yves Saint Laurent</p>
-                        </div>  
-                    </div>
-                    <div class="list-origin">
-                        <h3>Quốc gia</h3>
-                        <div data-origin="Đức">Đức</div>
-                        <div data-origin="Ý">ý</div>
-                        <div data-origin="Pháp">Pháp</div>
-                        <div data-origin="Mỹ">Mỹ</div>
-                    </div>
-                    <div class="list-fav">
-                        <h3>Nhóm hương</h3>
-                        <div data-scent="Floral">
-                            <p>Hương Hoa cỏ</p>
-                        </div>
-                        <div data-scent="Aromatic">
-                            <p>Hương Thơm ngát</p>
-                        </div>
-                        <div data-scent="Chypre">
-                            <p>Hương Síp</p>
-                        </div>
-                        <div data-scent="Citrus">
-                            <p>Hương Cam chanh</p>
-                        </div>
-                        <div data-scent="Leather">
-                            <p>Hương Da thuộc</p>
-                        </div>
-                        <div data-scent="Oriental">
-                            <p>Hương Phương Đông</p>
-                        </div>
-                        <div data-scent="Woody">
-                            <p>Hương Gỗ</p>
-                        </div>
-                        <div data-scent="Oriental Floral">
-                            <p>Hương Hoa cỏ Phương Đông</p>
-                        </div>
-                        <div data-scent="Floral Fruity">
-                            <p>Hương Hoa cỏ trái cây</p>
-                        </div>
-                        <div data-scent="Woody Spicy">
-                            <p>Hương Gỗ Cay Nồng</p>
-                        </div>
-                        <div data-scent="Woody Floral Musk">
-                            <p>Hương Gỗ Hoa cỏ Xạ hương</p>
-                        </div>
-                        <div data-scent="Floral Woody Musk">
-                            <p>Hương Hoa cỏ Gỗ Xạ hương</p>
-                        </div>
-                        <div data-scent="Woody Aromatic">
-                            <p>Hương Gỗ thơm</p>
-                        </div>
-                        <div data-scent="Chypre Floral">
-                            <p>Hương Hoa cỏ Síp</p>
-                        </div>
-                        <div data-scent="Citrus Aromatic">
-                            <p>Hương Cam chanh Thơm ngát</p>
-                        </div>
-                        <div data-scent="Oriental Spicy">
-                            <p>Hương Cay nồng Phương Đông</p>
-                        </div>
-                        <div data-scent="Aromatic Aquatic">
-                            <p>Hương Thơm biển</p>
-                        </div>
-                        <div data-scent="Aromatic Fruity">
-                            <p>Hương thơm trái cây</p>
-                        </div>
-                        <div data-scent="Aromatic Fougere">
-                            <p>Hương Thơm Dương xỉ</p>
-                        </div>
-                        <div data-scent="Aromatic Green">
-                            <p>Hương Thơm cây cỏ tự nhiên</p>
-                        </div>
-                    </div>
+                    
                 </li>
 
                     
