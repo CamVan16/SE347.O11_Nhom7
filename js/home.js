@@ -69,7 +69,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  var favItems = document.querySelectorAll(".l-brands div");
 
+  favItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var selectedBrand = item.getAttribute("data-brand");
+      window.location.href = "store.html?brand=" + encodeURIComponent(selectedBrand);
+    });
+  });
+});
 // Khi nhấp vào mùi hương
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -83,7 +92,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 document.addEventListener("DOMContentLoaded", function () {
-  var favItems = document.querySelectorAll(".list-sex div");
+  var favItems = document.querySelectorAll(".l-insenses div");
+
+  favItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var selectedScent = item.getAttribute("data-scent");
+      window.location.href = "store.html?scent=" + encodeURIComponent(selectedScent);
+    });
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  var favItems = document.querySelectorAll(".l-sexs div");
 
   favItems.forEach(function (item) {
     item.addEventListener("click", function () {
@@ -93,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 document.addEventListener("DOMContentLoaded", function () {
-  var favItems = document.querySelectorAll(".list-origin div");
+  var favItems = document.querySelectorAll(".l-origins div");
 
   favItems.forEach(function (item) {
     item.addEventListener("click", function () {
