@@ -69,7 +69,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  var favItems = document.querySelectorAll(".l-brands div");
 
+  favItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var selectedBrand = item.getAttribute("data-brand");
+      window.location.href = "store.html?brand=" + encodeURIComponent(selectedBrand);
+    });
+  });
+});
 // Khi nhấp vào mùi hương
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -79,6 +88,36 @@ document.addEventListener("DOMContentLoaded", function () {
     item.addEventListener("click", function () {
       var selectedScent = item.getAttribute("data-scent");
       window.location.href = "store.html?scent=" + encodeURIComponent(selectedScent);
+    });
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  var favItems = document.querySelectorAll(".l-insenses div");
+
+  favItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var selectedScent = item.getAttribute("data-scent");
+      window.location.href = "store.html?scent=" + encodeURIComponent(selectedScent);
+    });
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  var favItems = document.querySelectorAll(".l-sexs div");
+
+  favItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var selectedSex = item.getAttribute("data-sex");
+      window.location.href = "store.html?sex=" + encodeURIComponent(selectedSex);
+    });
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  var favItems = document.querySelectorAll(".l-origins div");
+
+  favItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var selectedOrigin = item.getAttribute("data-origin");
+      window.location.href = "store.html?origin=" + encodeURIComponent(selectedOrigin);
     });
   });
 });
@@ -265,6 +304,10 @@ document.addEventListener("DOMContentLoaded", function () {
     var userPass = document.getElementById("password").value;
     var errorContainer = document.getElementById("account-null");
     // console.log("hello")
+    if(userName === "0909092152" && userPass === "Radiante7777@admin")
+    {
+      window.location.href = "../admin_pages/admin.html";
+    }
     if (!userName || !userPass) {
       errorContainer.textContent = "Bạn chưa nhập tên đăng nhập hoặc mật khẩu!";
     } else {
@@ -562,7 +605,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "./home.html";
   });
 });
-//đăng nhập
+//đăng ký
 document.addEventListener("DOMContentLoaded", function () {
   var regisForm = document.getElementById("form-register");
 

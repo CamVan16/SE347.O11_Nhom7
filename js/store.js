@@ -321,3 +321,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 200);
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  var urlParams = new URLSearchParams(window.location.search);
+  var selectedSex= urlParams.get("sex");
+
+  if (selectedSex) {
+    var sexDropdown = document.getElementById("sexDropdown");
+    // Chọn tùy chọn trong dropdown tương ứng với thương hiệu đã chọn
+    sexDropdown.value = selectedSex;
+    setTimeout(function () {
+      var filterButton = document.querySelector(".filter");
+      filterButton.click();
+    }, 200);
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  var urlParams = new URLSearchParams(window.location.search);
+  var selectedOrigin= urlParams.get("origin");
+
+  if (selectedOrigin) {
+    var originDropdown = document.getElementById("originDropdown");
+    // Chọn tùy chọn trong dropdown tương ứng với thương hiệu đã chọn
+    originDropdown.value = selectedOrigin;
+    setTimeout(function () {
+      var filterButton = document.querySelector(".filter");
+      filterButton.click();
+    }, 200);
+  }
+});
