@@ -14,7 +14,7 @@ body {
 }
 
 html {
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .product-management-content {
@@ -113,4 +113,46 @@ th a {
     display: flex;
     overflow: hidden;
     overflow-y: auto;
+}
+
+#product-table {
+    border-radius: 0.8%;
+}
+#product-table th {
+    text-align: left;
+}
+#product-table tr {
+    height: 2rem;
+}
+#product-table a {
+    color: #07503d;
+}
+#product-table a:hover {
+    color:cornflowerblue;
+}
+.product-management-add-product button {
+    background-color:#06ad81;
+    color: black;
+}
+.product-management-title {
+    /* padding-bottom: 0px; */
+    margin-bottom: 0px;
+}
+.product-management-title h1{
+    text-align: center;
+    margin-bottom: 1.5em;
+    /* color:#07503d; */
+    /* font-size: 2rem; */
+    /* font-size: 2rem; */
+}
+@media (max-width: 780px) {
+    .product-management-list {
+        font-size: 0.7rem;
+    }
+    .product-management-title h1 {
+        font-size: 1.7rem;
+    }
+    .product-management-title span {
+        font-size: 0.8rem;
+    }
 }

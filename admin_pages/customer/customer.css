@@ -214,3 +214,29 @@ body {
 .customers-footer button:hover {
     opacity: 0.85;
 }
+
+#customer-management h1{
+    text-align: center;
+    padding: 1.5rem;
+}
+#customer-management span {
+    font-weight: bold;
+}
+#customer-table th{
+    text-align: left;
+}
+#customer-table tr {
+    height: 2rem;
+}
+
+@media (max-width: 780px) {
+    #customer-list {
+        font-size: 0.7rem;
+    }
+    #customer-management h1 {
+        font-size: 1.7rem;
+    }
+    #customer-management span {
+        font-size: 0.8rem;
+    }
+}
